@@ -398,3 +398,21 @@ cp -rv /media/ubuntu-user/Seagate/AFMAS_GastricCancer_Dataset ~/workspace/
 cp -rv /media/ubuntu-user/Seagate/External_Validation_Datasets ~/workspace/
 echo "✅ 数据复制完成！"
 
+
+
+try2
+
+
+cd ~/workspace/AFMAS_GastricCancer_Dataset
+
+  nohup python3 27_simclr_pretraining_cuda.py \
+      --data_dir /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_full/GasHisSDB/160 \
+      --num_epochs 100 \
+      --batch_size 256 \
+      --num_workers 8 \
+      --use_amp \
+      --log_dir ./simclr_logs_rtx4090 \
+      > ~/simclr_full_training.log 2>&1 &
+
+  echo "✅ 完整训练已启动！进程ID: $!"
+  echo $! > ~/simclr_training.pid
