@@ -390,3 +390,11 @@ drwxr-xr-x 2 ubuntu-user ubuntu-user 128K Oct 16 00:49 __pycache__
 开始复制数据...
 (base) ubuntu-user@WS7-3:~/workspace$ 
 
+
+
+修复try1
+
+cp -rv /media/ubuntu-user/Seagate/AFMAS_GastricCancer_Dataset ~/workspace/
+cp -rv /media/ubuntu-user/Seagate/External_Validation_Datasets ~/workspace/
+echo "✅ 数据复制完成！"
+
