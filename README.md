@@ -136,6 +136,7 @@
   ========================================
         SimCLR RTX 4090 快速测试
   ========================================
+
   Loading images from: /home/ubuntu-user/workspace/...
   Found 1000 images
   Epoch 1/10 - Loss: 4.2341 - Time: 35s
@@ -266,3 +267,126 @@
   3. 复制上面的命令，一步步粘贴执行
 
   遇到任何问题立即截图告诉我！ 🚀
+
+
+
+
+
+
+
+
+
+try1.0
+
+
+
+  (base) ubuntu-user@WS7-3:~$ ^C
+(base) ubuntu-user@WS7-3:~$ cd /media/ubuntu-user/Seagate
+(base) ubuntu-user@WS7-3:/media/ubuntu-user/Seagate$ ls -lh AFMAS_GastricCancer_Dataset
+total 13M
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  14K Oct 14 20:22 01_deduplicate_and_organize.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  12K Oct 14 20:25 02_three_phase_controller.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  14K Oct 14 20:26 03_covariance_collaboration.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  15K Oct 14 20:37 04_agent_base.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  13K Oct 14 20:32 05_agent_models.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  13K Oct 14 20:33 06_diversity_maintenance.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  15K Oct 14 20:56 07_afmas_system.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 9.4K Oct 14 20:46 08_integrate_xgboost.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  12K Oct 14 20:57 09_integrate_xgboost_vgg.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 3.7K Oct 14 20:53 10_create_feature_selector.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 1.7K Oct 14 20:56 11_recreate_selector.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  13K Oct 14 21:04 12_test_on_real_data.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  19K Oct 15 02:00 13_train_agents.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  13K Oct 15 08:04 13_train_agents_resume.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  14K Oct 14 21:21 14_run_experiments.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  15K Oct 14 22:02 15_attention_visualization.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 9.2K Oct 15 20:06 15b_simple_gradcam.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  16K Oct 15 20:03 15_gradcam_visualization.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  21K Oct 15 21:47 16_afmas_v2_optimized.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  16K Oct 15 01:35 16_statistical_tests.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  15K Oct 15 22:00 17_comparison_analysis.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  15K Oct 15 01:36 17_generate_paper_tables.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  21K Oct 15 11:20 18_generate_sci_quality_figures.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  16K Oct 15 22:09 18_overfitting_analysis.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  15K Oct 15 22:28 19_publication_readiness_assessment.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  18K Oct 15 17:20 19_train_ensemble_agent.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  12K Oct 16 15:58 23_domain_discriminator.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  14K Oct 16 16:21 24_gradient_reversal_layer.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  22K Oct 16 16:30 25_da_afmas.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 5.9K Oct 16 16:05 26_sample_labeled_data.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  14K Oct 16 16:42 27_simclr_pretraining_cuda.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  15K Oct 16 16:28 27_simclr_pretraining.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 1.5K Oct 15 21:58 afmas_v2_results.json
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 264K Oct 14 20:26 agent_correlation_matrix.png
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 309K Oct 15 13:12 auto_experiments.log
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 7.0K Oct 15 11:20 auto_run_all_experiments.sh
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 3.4K Oct 15 01:38 check_training_status.sh
+drwxr-xr-x 2 ubuntu-user ubuntu-user 128K Oct 15 22:00 comparison_results
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 7.4K Oct 15 20:10 CRITICAL_DIAGNOSIS_REPORT.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  846 Oct 14 20:23 dataset_report.json
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 328K Oct 14 20:33 diversity_history.png
+drwxr-xr-x 2 ubuntu-user ubuntu-user 128K Oct 15 05:40 experiment_results
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 155K Oct 15 20:05 experiment_run.log
+drwxr-xr-x 2 ubuntu-user ubuntu-user 128K Oct 14 20:08 experiments
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 278K Oct 15 16:46 experiments_full.log
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  19K Oct 15 15:26 experiments.log
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 2.4K Oct 15 13:12 EXPERIMENT_SUMMARY.md
+drwxr-xr-x 2 ubuntu-user ubuntu-user 128K Oct 16 00:51 external_validation
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 6.4K Oct 15 23:14 external_validation_options.md
+drwxr-xr-x 6 ubuntu-user ubuntu-user 128K Oct 15 20:03 gradcam_results
+drwxr-xr-x 4 ubuntu-user ubuntu-user 128K Oct 14 20:08 models
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 8.8K Oct 14 21:27 NEXT_STEPS.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  903 Oct 15 22:09 overfitting_analysis_report.json
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  19K Oct 14 21:21 PAPER_OUTLINE.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  13K Oct 15 01:37 PAPER_WRITING_GUIDE.md
+drwxr-xr-x 5 ubuntu-user ubuntu-user 128K Oct 14 20:22 processed_data
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  13K Oct 14 21:08 PROJECT_STATUS_FINAL.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  16K Oct 14 20:41 PROJECT_SUMMARY.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  10K Oct 15 17:25 PUBLICATION_ROADMAP.md
+drwxr-xr-x 2 ubuntu-user ubuntu-user 128K Oct 14 20:36 __pycache__
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 4.2K Oct 14 21:26 quick_commands.sh
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 4.8K Oct 16 16:45 quick_start_rtx4090.sh
+drwxr-xr-x 2 ubuntu-user ubuntu-user 128K Oct 14 20:08 raw_data
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 8.1K Oct 14 20:41 README.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 9.8K Oct 14 21:23 README_PROJECT.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 9.7K Oct 14 21:06 REAL_DATA_TEST_REPORT.md
+drwxr-xr-x 3 ubuntu-user ubuntu-user 128K Oct 14 20:08 results
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 8.1K Oct 16 16:45 RTX4090_DEPLOYMENT_GUIDE.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 8.3K Oct 14 21:26 STATUS_REPORT.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 2.8K Oct 14 21:05 test_results_real_data.json
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 692K Oct 15 11:51 training_log_gpu_resume.txt
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 991K Oct 15 05:38 training_log_gpu.txt
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  75K Oct 15 02:08 training_log.txt
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 6.7K Oct 16 16:47 TRANSFER_TO_LAB.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 8.4K Oct 14 20:59 XGBOOST_INTEGRATION_COMPLETE.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 1.7K Oct 14 20:57 xgboost_selector.py
+(base) ubuntu-user@WS7-3:/media/ubuntu-user/Seagate$ ls -lh External_Validation_Datasets
+total 2.7M
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  13K Oct 16 00:36 20_external_validation_gashissdb.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 9.0K Oct 16 14:18 21_external_validation_simple.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  19K Oct 16 10:14 22_analyze_validation_results.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  13K Oct 16 00:49 agent_models_05.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 6.8K Oct 16 00:38 CURRENT_STATUS_SUMMARY.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 3.5K Oct 16 00:22 download_gashissdb.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  11K Oct 16 00:46 EXECUTIVE_SUMMARY.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 3.5K Oct 16 10:19 extract_gashissdb.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 8.2K Oct 16 11:00 FILES_CREATED_SUMMARY.md
+drwxr-xr-x 6 ubuntu-user ubuntu-user 128K Oct 16 00:18 GasHisSDB
+drwxr-xr-x 4 ubuntu-user ubuntu-user 128K Oct 16 00:22 GasHisSDB_full
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 5.2K Oct 16 00:35 GasHisSDB_INFO.md
+drwxr-xr-x 4 ubuntu-user ubuntu-user 128K Oct 16 16:08 GasHisSDB_labeled_1k
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  11K Oct 16 10:54 NEXT_STEPS_GUIDE.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 9.6K Oct 16 10:05 PAPER_EXTERNAL_VALIDATION_SECTION.md
+drwxr-xr-x 2 ubuntu-user ubuntu-user 128K Oct 16 00:49 __pycache__
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 6.2K Oct 16 10:59 README.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 9.2K Oct 16 10:17 REFERENCES_CITATIONS.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  40K Oct 16 14:54 validation_gpu.log
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  11K Oct 16 10:57 WORK_COMPLETED_OVERNIGHT.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  11K Oct 16 00:53 WORK_COMPLETED_SUMMARY.md
+(base) ubuntu-user@WS7-3:/media/ubuntu-user/Seagate$ mkdir -p ~/workspace
+(base) ubuntu-user@WS7-3:/media/ubuntu-user/Seagate$ cd ~/workspace
+(base) ubuntu-user@WS7-3:~/workspace$ echo "开始复制数据..."
+
+开始复制数据...
+(base) ubuntu-user@WS7-3:~/workspace$ 
+
