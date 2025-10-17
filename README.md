@@ -416,3 +416,38 @@ cd ~/workspace/AFMAS_GastricCancer_Dataset
 
   echo "✅ 完整训练已启动！进程ID: $!"
   echo $! > ~/simclr_training.pid
+
+
+
+
+  try3
+
+  # 1. 停止错误的进程
+  pkill -f 27_simclr_pretraining_cuda.py
+
+  # 2. 激活环境
+  conda activate afmas
+
+  # 3. 进入目录
+  cd ~/workspace/AFMAS_GastricCancer_Dataset
+
+  # 4. 单行启动命令（一次性复制这整行）
+  nohup python3 27_simclr_pretraining_cuda.py --data_dir /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_full/GasHisSDB/160 --num_epochs
+   100 --batch_size 256 --num_workers 8 --use_amp --log_dir ./simclr_logs_rtx4090 > ~/simclr_full_training.log 2>&1 &
+
+  # 5. 记录进程ID
+  echo "训练进程ID: $!" | tee ~/simclr_training.pid
+
+  # 6. 等待2秒后查看是否启动成功
+  sleep 2
+  tail -n 15 ~/simclr_full_training.log
+
+  把这整个代码块复制粘贴到终端！ 这样可以确保命令在一行执行。
+
+  执行后你应该看到类似：
+  [1] 12345
+  训练进程ID: 12345
+  ================================================================================
+                          🚀 SimCLR CUDA Optimized Training
+  ================================================================================
+  ✓ 使用设备: NVIDIA GeForce RTX 4090
