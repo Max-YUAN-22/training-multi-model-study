@@ -1,3 +1,20 @@
+⏺ 现在是1536维！agent特征实际维度和预期不同。
+
+  最简单的解决方案：禁用多层级判别器，只用单层的：
+
+  # 查看use_multi_level的设置
+  grep -n "use_multi_level" 25_da_afmas.py | head -5
+
+  或者直接修改，禁用多层级判别器：
+
+  # 禁用多层级判别器（改为False）
+  sed -i 's/use_multi_level_adaptation: bool = True/use_multi_level_adaptation: bool = False/g' 25_da_afmas.py
+
+  # 验证
+  grep "use_multi_level_adaptation" 25_da_afmas.py | head -3
+
+
+
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sed -i 's/feature_dims=(512, 1024, 2048)/feature_dims=(2048, 2048, 2048)/g' 25_da_afmas.py
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep "feature_dims=" 25_da_afmas.py
                 feature_dims=(2048, 2048, 2048),
