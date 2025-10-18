@@ -1,3 +1,13 @@
+ls -la ~/workspace/AFMAS_GastricCancer_Dataset/*.json
+  cat ~/workspace/AFMAS_GastricCancer_Dataset/afmas_v2_results.json
+  cat ~/workspace/AFMAS_GastricCancer_Dataset/experiment_results/all_experiments_summary.json
+
+  请把这两个JSON文件的内容发给我，我看看能否：
+  1. 直接使用这些数据
+  2. 或者创建一个符合要求格式的 baseline_comparison_results.json 文件
+  
+
+tryL
 (afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -la ~/workspace/AFMAS_GastricCancer_Dataset/.json
 ls: cannot access '/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/.json': No such file or directory
 (afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls
