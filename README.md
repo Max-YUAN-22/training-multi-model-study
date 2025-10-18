@@ -506,3 +506,26 @@ try4
   sleep 2
   tail -n 20 ~/da_afmas_training.log
 
+再修复
+
+# 查看问题代码
+  head -40 25_da_afmas.py | grep -A 5 -B 5 "Volumes"
+
+  快速修复方案：
+
+  # 修复硬编码路径（将Mac路径改为当前目录）
+  sed -i 's|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/|./|g' 25_da_afmas.py
+
+  # 验证修改
+  grep "domain_discriminator" 25_da_afmas.py | head -5
+
+  # 重新启动训练
+  pkill -f 25_da_afmas.py
+  nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data
+  /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 >
+  ~/da_afmas_training.log 2>&1 &
+
+  echo "进程ID: $!"
+  sleep 3
+  tail -n 30 ~/da_afmas_training.log
+
