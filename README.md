@@ -1,3 +1,37 @@
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ head -80 18_generate_sci_quality_figures.py | tail -30
+
+def create_figure_1_performance_comparison(results_dir: Path, output_dir: Path):
+    """
+    Figure 1: 性能对比综合图 (4子图布局)
+    (a) 准确率对比柱状图
+    (b) F1-Score对比
+    (c) Precision-Recall对比
+    (d) 计算效率对比 (FLOPs vs Accuracy)
+    """
+
+    # 加载baseline结果
+    with open(results_dir / 'baseline_comparison_results.json', 'r') as f:
+        baseline_data = json.load(f)
+
+    fig = plt.figure(figsize=(12, 9))
+    gs = GridSpec(2, 2, figure=fig, hspace=0.3, wspace=0.3)
+
+    methods = ['ResNet50', 'EfficientNet-B0', 'Standard\nEnsemble', 'AFMAS\n(Ours)']
+
+    # 从baseline数据提取指标
+    accuracies = [
+        baseline_data['ResNet50']['accuracy']['mean'],
+        baseline_data['EfficientNet-B0']['accuracy']['mean'],
+        baseline_data['Standard Ensemble']['accuracy']['mean'],
+        baseline_data['AFMAS']['accuracy']['mean']
+    ]
+
+    f1_scores = [
+        baseline_data['ResNet50']['f1']['mean'],
+        baseline_data['EfficientNet-B0']['f1']['mean'],
+
+  
+  
   head -80 18_generate_sci_quality_figures.py | tail -30
   
   
