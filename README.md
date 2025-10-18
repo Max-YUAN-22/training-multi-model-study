@@ -573,3 +573,35 @@ try6
   /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 >
   ~/da_afmas_training.log 2>&1 &
 
+
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sleep 3 && tail -n 30 ~/da_afmas_training.log
+[1]+  Exit 1                  nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 > ~/da_afmas_training.log 2>&1
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/25_da_afmas.py", line 34, in <module>
+    spec_discriminator.loader.exec_module(domain_discriminator)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1022, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1159, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1217, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/Volumes/Seagate/AFMAS_GastricCancer_Dataset/23_domain_discriminator.py'
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sed -i 's|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/|./|g' 25_da_afmas.py
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep "domain_discriminator.py" 25_da_afmas.py
+
+    "./23_domain_discriminator.py"
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep "domain_discriminator.py" 25_da_afmas.py
+
+    "./23_domain_discriminator.py"
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sed -i 's|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/23_domain_discriminator.py|./23_domain_discriminator.py|g' 25_da_afmas.py sed -i 's|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/24_gradient_reversal_layer.py|./24_gradient_reversal_layer.py|g' 25_da_afmas.py sed -i 's|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/05_agent_models.py|./05_agent_models.py|g' 25_da_afmas.py
+
+sed: can't read sed: No such file or directory
+sed: can't read s|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/24_gradient_reversal_layer.py|./24_gradient_reversal_layer.py|g: No such file or directory
+sed: can't read sed: No such file or directory
+sed: can't read s|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/05_agent_models.py|./05_agent_models.py|g: No such file or directory
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep ".py"" 25_da_afmas.py | grep -E "(23_|24_|05_)"
+bash: syntax error near unexpected token `('
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
+
+  
+
