@@ -548,4 +548,28 @@ try5:
   第5步：查看日志
   sleep 3 && tail -n 30 ~/da_afmas_training.log
 
-  每条命令分别复制执行！一条一条来！ 🔧
+try6
+
+⏺ 路径还没修复！先确认执行了第1步：
+
+  sed -i 's|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/|./|g' 25_da_afmas.py
+
+  执行后验证：
+  grep "domain_discriminator.py" 25_da_afmas.py
+
+  你应该看到 ./23_domain_discriminator.py 而不是 /Volumes/Seagate/...
+
+  如果还是显示旧路径，可能需要多修复几个地方：
+  # 修复所有可能的硬编码路径
+  sed -i 's|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/23_domain_discriminator.py|./23_domain_discriminator.py|g' 25_da_afmas.py
+  sed -i 's|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/24_gradient_reversal_layer.py|./24_gradient_reversal_layer.py|g' 25_da_afmas.py
+  sed -i 's|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/05_agent_models.py|./05_agent_models.py|g' 25_da_afmas.py
+
+  # 验证修复
+  grep "\.py\"" 25_da_afmas.py | grep -E "(23_|24_|05_)"
+
+  修复完成后再启动：
+  nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data
+  /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 >
+  ~/da_afmas_training.log 2>&1 &
+
