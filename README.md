@@ -1,3 +1,19 @@
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ sed -i "s|/Volumes/Seagate/AFMAS_GastricCancer_Dataset|/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset|g" 21_external_validation_simple.py
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ sed -i "s|/Volumes/Seagate/External_Validation_Datasets|/home/ubuntu-user/workspace/External_Validation_Datasets|g" 21_external_validation_simple.py
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ ls -la ./GasHisSDB_full/GasHisSDB/
+total 40
+drwxr-xr-x 5 ubuntu-user ubuntu-user 4096 Oct 17 18:43 .
+drwxr-xr-x 4 ubuntu-user ubuntu-user 4096 Oct 17 18:43 ..
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 4096 Oct 17 18:34 ._120
+drwxr-xr-x 4 ubuntu-user ubuntu-user 4096 Oct 17 18:34 120
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 4096 Oct 17 18:36 ._160
+drwxr-xr-x 4 ubuntu-user ubuntu-user 4096 Oct 17 18:36 160
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 4096 Oct 17 18:43 ._80
+drwxr-xr-x 4 ubuntu-user ubuntu-user 4096 Oct 17 18:43 80
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 4096 Oct 17 18:43 ._README.md
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 1311 Oct 17 18:43 README.md
+
+
 首先，请先运行 sed 命令修复硬编码路径：
 
   cd ~/workspace/External_Validation_Datasets
