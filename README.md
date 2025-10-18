@@ -451,3 +451,44 @@ cd ~/workspace/AFMAS_GastricCancer_Dataset
                           🚀 SimCLR CUDA Optimized Training
   ================================================================================
   ✓ 使用设备: NVIDIA GeForce RTX 4090
+
+
+try4
+
+⏺ 🎉 恭喜！SimCLR训练完成了！
+
+  训练结果：
+  - ✅ 总时间：5.68小时
+  - ✅ 最佳loss: 5.0649
+  - ✅ 模型已保存！
+
+⏺ 你的命令缺少参数！让我帮你启动正确的DA-AFMAS训练：
+
+  在实验室终端运行这个完整命令：
+
+  # 先停止错误的进程
+  pkill -f 25_da_afmas.py
+
+  # 检查SimCLR模型位置
+  ls -lh simclr_logs_rtx4090/best_model.pth
+
+  # 启动完整的DA-AFMAS训练（带所有参数）
+  nohup python3 25_da_afmas.py \
+      --pretrained_weights ./simclr_logs_rtx4090/best_model.pth \
+      --source_data ./processed_data \
+      --target_data /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k \
+      --num_epochs 50 \
+      --batch_size 32 \
+      --learning_rate 0.0001 \
+      > ~/da_afmas_training.log 2>&1 &
+
+  echo "DA-AFMAS训练启动，进程ID: $!"
+
+  # 查看训练进度
+  tail -f ~/da_afmas_training.log
+
+  如果报错找不到文件，先检查路径：
+  # 检查必要的路径
+  ls -lh simclr_logs_rtx4090/best_model.pth
+  ls -d processed_data
+  ls -d /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k
