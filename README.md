@@ -1,3 +1,14 @@
+⏺ 找到了！MultiLevelDomainDiscriminator 的默认 feature_dims=(512, 1024, 2048)，但实际传入的第一个特征是2048维的。
+
+  需要查看25_da_afmas.py中如何初始化这个判别器：
+
+  grep -n "MultiLevelDomainDiscriminator" 25_da_afmas.py
+
+  然后查看具体的初始化代码：
+
+  sed -n '200,250p' 25_da_afmas.py | grep -A 10 -B 5 "MultiLevel"
+
+
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sed -n '120,180p' 23_domain_discriminator.py
 
     创新点:
