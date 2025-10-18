@@ -1,4 +1,12 @@
-(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "use_multi_level" 25_da_afmas.py | head -5
+nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data
+  /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 >
+  ~/da_afmas_training.log 2>&1 &
+
+  等待3秒后查看日志：
+  sleep 3 && tail -n 40 ~/da_afmas_training.log
+  
+ try
+  (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "use_multi_level" 25_da_afmas.py | head -5
 
 97:        use_multi_level_adaptation: bool = True,
 107:            use_multi_level_adaptation: 是否使用多层级域适应
