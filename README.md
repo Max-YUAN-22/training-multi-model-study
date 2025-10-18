@@ -1,3 +1,21 @@
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ cd ~/workspace/AFMAS_GastricCancer_Dataset
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh models/ ls -lh results/ find . -name "*.pth" -o -name "model" | grep -v pycache
+ls: invalid option -- 'e'
+Try 'ls --help' for more information.
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh experiment_results/ cat EXPERIMENT_SUMMARY.md 2>/dev/null | head -50
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 2.4K Oct 17 18:24 EXPERIMENT_SUMMARY.md
+
+experiment_results/:
+total 16K
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 2.7K Oct 17 18:24 all_experiments_summary.json
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 1.4K Oct 17 18:24 exp1_baseline_comparison.json
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  636 Oct 17 18:24 exp2_ensemble_comparison.json
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  449 Oct 17 18:24 exp4_phase_analysis.json
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
+
+
+
+
 检查是否有已训练好的模型：
 
   cd ~/workspace/AFMAS_GastricCancer_Dataset
