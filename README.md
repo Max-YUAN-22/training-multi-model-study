@@ -1,3 +1,105 @@
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ tail -100 ~/workspace/External_Validation_Datasets/21_external_validation_simple.py
+            'recall': float(recall),
+            'f1_score': float(f1),
+            'total_samples': len(all_labels)
+        },
+        'confusion_matrix': cm.tolist(),
+        'per_class': {
+            'Normal': {
+                'true_count': int(np.sum(all_labels == 0)),
+                'pred_count': int(np.sum(all_preds == 0)),
+                'correct': int(cm[0, 0])
+            },
+            'Abnormal': {
+                'true_count': int(np.sum(all_labels == 1)),
+                'pred_count': int(np.sum(all_preds == 1)),
+                'correct': int(cm[1, 1])
+            }
+        }
+    }
+
+    return results, cm
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--data_dir', type=str,
+                       default='/Volumes/Seagate/External_Validation_Datasets/GasHisSDB')
+    parser.add_argument('--image_size', type=str, default='160x160')
+    parser.add_argument('--output_dir', type=str,
+                       default='/Volumes/Seagate/AFMAS_GastricCancer_Dataset/external_validation')
+    parser.add_argument('--batch_size', type=int, default=16)
+    parser.add_argument('--device', type=str, default='cpu')
+
+    args = parser.parse_args()
+
+    # 设置设备
+    device = torch.device(args.device)
+
+    print("="*80)
+    print("AFMAS v2 外部验证 - GasHisSDB")
+    print("="*80)
+    print(f"数据目录: {args.data_dir}")
+    print(f"图像尺寸: {args.image_size}")
+    print(f"设备: {device}\n")
+
+    # 数据预处理
+    transform = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                           std=[0.229, 0.224, 0.225])
+    ])
+
+    # 加载数据集
+    dataset = GasHisSDBDataset(
+        data_dir=Path(args.data_dir),
+        image_size=args.image_size,
+        transform=transform
+    )
+
+    dataloader = DataLoader(
+        dataset,
+        batch_size=args.batch_size,
+        shuffle=False,
+        num_workers=0
+    )
+
+    # 加载模型
+    adversarial_ckpt = Path('/Volumes/Seagate/AFMAS_GastricCancer_Dataset/models/adversarial_best.pth')
+    mlgc_ckpt = Path('/Volumes/Seagate/AFMAS_GastricCancer_Dataset/models/mlgc_expert_best.pth')
+
+    adversarial_model = load_afmas_agent(adversarial_ckpt, 'adversarial', device)
+    mlgc_model = load_afmas_agent(mlgc_ckpt, 'mlgc', device)
+
+    # 执行评估
+    results, cm = external_validation(adversarial_model, mlgc_model, dataloader, device)
+
+    # 保存结果
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(exist_ok=True, parents=True)
+
+    with open(output_dir / 'external_validation_results.json', 'w') as f:
+        json.dump(results, f, indent=2)
+
+    # 绘制混淆矩阵
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+                xticklabels=['Normal', 'Abnormal'],
+                yticklabels=['Normal', 'Abnormal'])
+    plt.title('AFMAS v2 - GasHisSDB External Validation\nConfusion Matrix')
+    plt.ylabel('True Label')
+    plt.xlabel('Predicted Label')
+    plt.tight_layout()
+    plt.savefig(output_dir / 'external_validation_confusion_matrix.png', dpi=300)
+    plt.close()
+
+    print(f"\n✓ 结果已保存到: {output_dir}")
+
+
+if __name__ == '__main__':
+    main()
+
 (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ head -80 ~/workspace/External_Validation_Datasets/21_external_validation_simple.py
 #!/usr/bin/env python3
 """
