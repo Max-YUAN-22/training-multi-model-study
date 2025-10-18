@@ -1,4 +1,12 @@
-之前的sed命令没有生效。需要找到正确的位置修复。先查看域判别器的初始化：
+⏺ 看到了！feature_dim=2048 是正确的。但需要看discriminator是如何构建的。查看完整的初始化代码：
+
+  # 查看__init__方法的完整内容
+  sed -n '22,70p' 23_domain_discriminator.py
+  
+  
+  
+  
+  之前的sed命令没有生效。需要找到正确的位置修复。先查看域判别器的初始化：
 
   # 查看域判别器的__init__方法
   grep -A 20 "class.*Discriminator" 23_domain_discriminator.py | head -30
