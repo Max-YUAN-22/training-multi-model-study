@@ -623,3 +623,43 @@ bash: syntax error near unexpected token `('
 
   5. 查看日志：
   sleep 3 && tail -n 30 ~/da_afmas_training.log
+
+
+
+
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 > ~/da_afmas_training.log 2>&1 &
+
+[1] 10895
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sleep 3 && tail -n 30 ~/da_afmas_training.log
+[1]+  Exit 1                  nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 > ~/da_afmas_training.log 2>&1
+--------------------------------------------------------------------------------
+输入形状: torch.Size([4, 3, 224, 224])
+类别标签: tensor([2, 1, 2, 1])
+域标签: tensor([0, 1, 1, 1])
+Traceback (most recent call last):
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/25_da_afmas.py", line 535, in <module>
+    outputs = model(x, domain_label=domain_labels, training=True)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/25_da_afmas.py", line 283, in forward
+    features, agent_features, agent_logits = self.extract_features(
+                                             ~~~~~~~~~~~~~~~~~~~~~^
+        x, return_agent_features=True
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/25_da_afmas.py", line 241, in extract_features
+    logit, feat = agent(x, return_features=True)
+                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/05_agent_models.py", line 111, in forward
+    out = torch.relu(features, inplace=True)
+TypeError: relu() got an unexpected keyword argument 'inplace'
+
