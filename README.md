@@ -1,3 +1,18 @@
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "use_multi_level" 25_da_afmas.py | head -5
+
+97:        use_multi_level_adaptation: bool = True,
+107:            use_multi_level_adaptation: 是否使用多层级域适应
+115:        self.use_multi_level = use_multi_level_adaptation
+199:        if use_multi_level_adaptation:
+318:        if training and self.use_multi_level and agent_features is not None:
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ \sed -i 's/use_multi_level_adaptation: bool = True/use_multi_level_adaptation: bool = False/g' 25_da_afmas.py
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep "use_multi_level_adaptation" 25_da_afmas.py | head -3
+        use_multi_level_adaptation: bool = False,
+            use_multi_level_adaptation: 是否使用多层级域适应
+        self.use_multi_level = use_multi_level_adaptation
+
+
+
 ⏺ 现在是1536维！agent特征实际维度和预期不同。
 
   最简单的解决方案：禁用多层级判别器，只用单层的：
