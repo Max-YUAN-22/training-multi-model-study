@@ -1,3 +1,57 @@
+================================================================================(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ cd ~/workspace/AFMAS_GastricCancer_Dataset
+(afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ head -50 18_generate_sci_quality_figures.py
+
+#!/usr/bin/env python3
+"""
+生成SCI期刊级别的高质量可视化图表
+适用于二区以上期刊投稿 (Computers in Biology and Medicine, Artificial Intelligence in Medicine等)
+"""
+
+import os
+import json
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from pathlib import Path
+import matplotlib.patches as mpatches
+from matplotlib.gridspec import GridSpec
+import warnings
+warnings.filterwarnings('ignore')
+
+# 设置SCI期刊级别的绘图参数
+plt.rcParams.update({
+    'font.family': 'serif',
+    'font.serif': ['Times New Roman'],
+    'font.size': 10,
+    'axes.labelsize': 11,
+    'axes.titlesize': 12,
+    'xtick.labelsize': 10,
+    'ytick.labelsize': 10,
+    'legend.fontsize': 9,
+    'figure.titlesize': 13,
+    'figure.dpi': 300,
+    'savefig.dpi': 300,
+    'savefig.bbox': 'tight',
+    'savefig.pad_inches': 0.05,
+    'pdf.fonttype': 42,  # TrueType字体，避免期刊要求的字体嵌入问题
+    'ps.fonttype': 42,
+    'axes.linewidth': 0.8,
+    'grid.linewidth': 0.5,
+    'lines.linewidth': 1.5,
+    'patch.linewidth': 0.5,
+})
+
+# 使用专业配色方案
+COLORS = {
+    'afmas': '#2E86AB',      # 深蓝色 - AFMAS主色
+    'baseline1': '#A23B72',  # 紫红色 - ResNet50
+    'baseline2': '#F18F01',  # 橙色 - EfficientNet
+    'baseline3': '#C73E1D',  # 红色 - Ensemble
+    'accent': '#06A77D',     # 青绿色 - 强调色
+    'grid': '#E5E5E5',       # 浅灰色 - 网格
+}
+
+
 cd ~/workspace/AFMAS_GastricCancer_Dataset
   head -50 18_generate_sci_quality_figures.py
 
