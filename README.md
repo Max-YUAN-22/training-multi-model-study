@@ -1,3 +1,30 @@
+⏺ 完美！我看到问题了。脚本里硬编码了Mac路径，需要修改。有3个地方需要改：
+
+  1. sys.path.append (第9行)：/Volumes/Seagate/AFMAS_GastricCancer_Dataset
+  2. adversarial_ckpt (第144行左右)：/Volumes/Seagate/AFMAS_GastricCancer_Dataset/models/adversarial_best.pth
+  3. mlgc_ckpt (第145行左右)：/Volumes/Seagate/AFMAS_GastricCancer_Dataset/models/mlgc_expert_best.pth
+
+  请在实验室机器上运行这些命令来修复：
+
+  cd ~/workspace/External_Validation_Datasets
+
+  # 1. 修改 sys.path.append
+  sed -i "s|/Volumes/Seagate/AFMAS_GastricCancer_Dataset|/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset|g" 21_external_validation_simple.py
+
+  # 2. 修改模型路径（两个checkpoint路径）
+  sed -i "s|'/Volumes/Seagate/AFMAS_GastricCancer_Dataset/models/|'/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/models/|g"
+  21_external_validation_simple.py
+
+  修改完成后运行验证：
+
+  python3 21_external_validation_simple.py \
+    --data_dir ./GasHisSDB_full/GasHisSDB \
+    --image_size 160 \
+    --output_dir ./validation_results \
+    --batch_size 32 \
+    --device cuda
+
+
 (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ tail -100 ~/workspace/External_Validation_Datasets/21_external_validation_simple.py
             'recall': float(recall),
             'f1_score': float(f1),
