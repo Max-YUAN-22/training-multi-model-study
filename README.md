@@ -1,3 +1,51 @@
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ python3 21_external_validation_simple.py --data_dir ./GasHisSDB_full/GasHisSDB --image_size 160 --output_dir ./validation_results --batch_size 32 --device cuda
+
+================================================================================
+AFMAS v2 外部验证 - GasHisSDB
+================================================================================
+数据目录: ./GasHisSDB_full/GasHisSDB
+图像尺寸: 160
+设备: cuda
+
+✓ 加载 33284 张图像
+  - Abnormal: 13124 张
+  - Normal: 20160 张
+/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+✓ 加载 adversarial agent from adversarial_best.pth
+✓ 加载 mlgc agent from mlgc_expert_best.pth
+
+================================================================================
+开始外部验证...
+================================================================================
+评估进度: 100%|█████████████████████████████| 1041/1041 [04:29<00:00,  3.87it/s]
+
+================================================================================
+外部验证结果 - GasHisSDB
+================================================================================
+
+总体性能:
+  准确率 (Accuracy): 0.5326 (53.26%)
+  精确率 (Precision): 0.4258
+  召回率 (Recall): 0.5320
+  F1分数: 0.4730
+
+样本数: 33284
+
+混淆矩阵:
+                预测Normal  预测Abnormal
+  真实Normal        10746        9414
+  真实Abnormal       6142        6982
+
+📊 性能评估:
+  ❌ 需改进 (<60%): 泛化能力不足
+
+✓ 结果已保存到: validation_results
+
+
+
 python3 21_external_validation_simple.py --data_dir ./GasHisSDB_full/GasHisSDB --image_size 160 --output_dir ./validation_results --batch_size 32 --device cuda
   
   这次应该能成功加载数据了！如果还是显示加载 0 张图像，可能需要检查一下图片格式：
