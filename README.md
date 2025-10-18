@@ -1,3 +1,24 @@
+之前的sed命令没有生效。需要找到正确的位置修复。先查看域判别器的初始化：
+
+  # 查看域判别器的__init__方法
+  grep -A 20 "class.*Discriminator" 23_domain_discriminator.py | head -30
+
+  或者直接查看第92行附近的代码：
+  sed -n '80,100p' 23_domain_discriminator.py
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
 # training-multi-model-study
 
  ---
