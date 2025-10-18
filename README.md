@@ -1,3 +1,45 @@
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ mv baseline_comparison_results.json ~/workspace/AFMAS_GastricCancer_Dataset/results/
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -la ~/workspace/AFMAS_GastricCancer_Dataset/results/baseline_comparison_results.json
+
+-rw-rw-r-- 1 ubuntu-user ubuntu-user 453 Oct 18 15:21 /home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/results/baseline_comparison_results.json
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ python3 18_generate_sci_quality_figures.py
+================================================================================
+生成SCI期刊级别的高质量可视化图表
+================================================================================
+
+生成图表...
+
+[1/6] 生成 Figure 1: Performance Comparison...
+Traceback (most recent call last):
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/18_generate_sci_quality_figures.py", line 525, in <module>
+    main()
+    ~~~~^^
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/18_generate_sci_quality_figures.py", line 484, in main
+    create_figure_1_performance_comparison(results_dir, output_dir)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/18_generate_sci_quality_figures.py", line 63, in create_figure_1_performance_comparison
+    baseline_data = json.load(f)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+        cls=cls, object_hook=object_hook,
+        parse_float=parse_float, parse_int=parse_int,
+        parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 1 column 149 (char 148)
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
+
+
+  
+  
+  
   mv baseline_comparison_results.json ~/workspace/AFMAS_GastricCancer_Dataset/results/
 
   然后验证文件已移动：
