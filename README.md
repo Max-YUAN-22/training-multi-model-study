@@ -1,4 +1,23 @@
-(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ head -80 18_generate_sci_quality_figures.py | tail -30
+
+  python3 -c "import json; data={'ResNet50':{'accuracy':{'mean':0.7674},'f1':{'mean':0.7737},'precision':{'mean':0.7814},'recall':{'mean':0.8119}},'Efficie
+  ntNet-B0':{'accuracy':{'mean':0.7519},'f1':{'mean':0.7270},'precision':{'mean':0.8062},'recall':{'mean':0.7421}},'Standard 
+  Ensemble':{'accuracy':{'mean':0.6021},'f1':{'mean':0.6180},'precision':{'mean':0.7380},'recall':{'mean':0.6597}},'AFMAS':{'accuracy':{'mean':0.8165},'f1'
+  :{'mean':0.8136},'precision':{'mean':0.8226},'recall':{'mean':0.8317}}}; json.dump(data, 
+  open('/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/results/baseline_comparison_results.json','w'), indent=2)"
+
+  验证：
+
+  cat ~/workspace/AFMAS_GastricCancer_Dataset/results/baseline_comparison_results.json
+
+  运行图表生成：
+
+  python3 18_generate_sci_quality_figures.py
+  
+  
+  
+  trytrytrytrytrytrytrytrytry-========
+  
+  (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ head -80 18_generate_sci_quality_figures.py | tail -30
 
 def create_figure_1_performance_comparison(results_dir: Path, output_dir: Path):
     """
