@@ -1,3 +1,18 @@
+找到了！脚本在 results_dir 目录下查找这个文件。让我看看 results_dir 的定义：
+
+  grep -n "results_dir" 18_generate_sci_quality_figures.py | head -10
+
+  同时，我们需要把文件移动到正确的位置：
+
+  mv baseline_comparison_results.json ~/workspace/AFMAS_GastricCancer_Dataset/results/
+
+  然后再运行：
+
+  python3 18_generate_sci_quality_figures.py
+
+  请先执行 grep 命令看看 results_dir 的定义，然后执行 mv 和 python3 命令！
+
+
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "baseline_comparison_results.json" 18_generate_sci_quality_figures.py
 62:    with open(results_dir / 'baseline_comparison_results.json', 'r') as f:
 475:    if not (results_dir / 'baseline_comparison_results.json').exists():
