@@ -1,4 +1,13 @@
-(afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ python3 18_generate_sci_quality_figures.py
+ls -la ~/workspace/AFMAS_GastricCancer_Dataset/*.json
+  ls -la ~/workspace/AFMAS_GastricCancer_Dataset/experiment_results/*.json
+
+  同时看看 experiment_results 里的文件内容：
+
+  cat ~/workspace/AFMAS_GastricCancer_Dataset/experiment_results/all_experiments_summary.json
+  
+  
+  
+  (afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ python3 18_generate_sci_quality_figures.py
 ================================================================================
 生成SCI期刊级别的高质量可视化图表
 ================================================================================
