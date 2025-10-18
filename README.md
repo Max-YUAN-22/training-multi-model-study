@@ -1,4 +1,9 @@
-(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ ls -la ~/workspace/External_Validation_Datasets/validation_results/ 
+
+  ls -la ~/workspace/AFMAS_GastricCancer_Dataset/results/
+  ls -la ~/workspace/AFMAS_GastricCancer_Dataset/experiment_results/
+  
+  
+  (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ ls -la ~/workspace/External_Validation_Datasets/validation_results/ 
 total 120
 drwxrwxr-x 2 ubuntu-user ubuntu-user   4096 Oct 18 14:52 .
 drwxr-xr-x 7 ubuntu-user ubuntu-user   4096 Oct 18 14:52 ..
