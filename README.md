@@ -1,3 +1,65 @@
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ cd ~/workspace/AFMAS_GastricCancer_Dataset
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$   cat > baseline_comparison_results.json << 'EOF'
+  {
+    "AFMAS": {
+      "accuracy": 0.8165,
+      "precision": 0.8226,
+      "recall": 0.8317,
+      "f1": 0.8136,
+      "inference_time": 0.1959
+    },
+    "ResNet50": {
+      "accuracy": 0.7674,
+      "precision": 0.7814,
+      "recall": 0.8119,
+      "f1": 0.7737,
+      "inference_time": 0.0097
+    },
+    "EfficientNet": {
+      "accuracy": 0.7519,
+      "precision": 0.8062,
+      "recall": 0.7421,
+      "f1": 0.7270,
+      "inference_time": 0.0532
+    },
+  EOF "inference_time": 0.1430
+> ^C
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$   cat > baseline_comparison_results.json << 'EOF'
+  {
+    "AFMAS": {
+      "accuracy": 0.8165,
+      "precision": 0.8226,
+      "recall": 0.8317,
+      "f1": 0.8136,
+      "inference_time": 0.1959
+    },
+    "ResNet50": {
+      "accuracy": 0.7674,
+      "precision": 0.7814,
+      "recall": 0.8119,
+      "f1": 0.7737,
+      "inference_time": 0.0097
+    },
+    "EfficientNet": {
+      "accuracy": 0.7519,
+      "precision": 0.8062,
+      "recall": 0.7421,
+      "f1": 0.7270,
+      "inference_time": 0.0532
+    },
+  EOF "inference_time": 0.1430sults.json << 'EOF'
+> 
+> 
+> ^C
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$   python3 18_generate_sci_quality_figures.py
+================================================================================
+生成SCI期刊级别的高质量可视化图表
+================================================================================
+⚠ 警告: baseline_comparison_results.json 不存在
+  需要先运行 14_run_experiments.py
+
+  
+  
   cat > baseline_comparison_results.json << 'EOF'
   {
     "AFMAS": {
