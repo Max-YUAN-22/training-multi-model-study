@@ -1,3 +1,288 @@
+ls: cannot access 'da.py': No such file or directory
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh *.py | grep -E "(train|da|afmas)"
+
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  15K Oct 17 18:24 07_afmas_system.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  13K Oct 17 18:24 12_test_on_real_data.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  19K Oct 17 18:24 13_train_agents.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  13K Oct 17 18:24 13_train_agents_resume.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  21K Oct 17 18:24 16_afmas_v2_optimized.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  18K Oct 17 18:24 19_train_ensemble_agent.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  22K Oct 18 14:04 25_da_afmas.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 5.9K Oct 17 18:24 26_sample_labeled_data.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  14K Oct 17 19:26 27_simclr_pretraining_cuda.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  15K Oct 17 18:24 27_simclr_pretraining.py
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh 13_train_agents.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 19K Oct 17 18:24 13_train_agents.py
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ cd ~/workspace/AFMAS_GastricCancer_Dataset
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh models/ ls -lh results/ find . -name "*.pth" -o -name "model" | grep -v pycache
+ls: invalid option -- 'e'
+Try 'ls --help' for more information.
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh experiment_results/ cat EXPERIMENT_SUMMARY.md 2>/dev/null | head -50
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 2.4K Oct 17 18:24 EXPERIMENT_SUMMARY.md
+
+experiment_results/:
+total 16K
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 2.7K Oct 17 18:24 all_experiments_summary.json
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 1.4K Oct 17 18:24 exp1_baseline_comparison.json
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  636 Oct 17 18:24 exp2_ensemble_comparison.json
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  449 Oct 17 18:24 exp4_phase_analysis.json
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh models/
+total 1.7G
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 4.3M Oct 17 18:24 adversarial_best.pth
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  13M Oct 17 18:24 adversarial_checkpoint.pth
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  42M Oct 17 18:24 detection_best.pth
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 124M Oct 17 18:24 detection_checkpoint.pth
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  28M Oct 17 18:24 egc_expert_best.pth
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  81M Oct 17 18:24 egc_expert_checkpoint.pth
+drwxr-xr-x 2 ubuntu-user ubuntu-user 4.0K Oct 17 18:24 ensemble
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 163M Oct 17 18:24 mlgc_expert_best.pth
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 488M Oct 17 18:24 mlgc_expert_checkpoint.pth
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  91M Oct 17 18:24 screening_best.pth
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 270M Oct 17 18:24 screening_checkpoint.pth
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  94M Oct 17 18:24 segmentation_best.pth
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 257M Oct 17 18:24 segmentation_checkpoint.pth
+drwxr-xr-x 2 ubuntu-user ubuntu-user 4.0K Oct 17 18:24 xgboost
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh results/
+total 160K
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 132K Oct 17 18:24 method_comparison.png
+drwxr-xr-x 2 ubuntu-user ubuntu-user 4.0K Oct 17 18:24 sci_figures
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 3.3K Oct 17 18:24 statistical_tests_report.txt
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  712 Oct 17 18:24 table1_baseline_comparison.tex
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  595 Oct 17 18:24 table2_ablation_study.tex
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  470 Oct 17 18:24 table3_stage_analysis.tex
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  683 Oct 17 18:24 table4_per_class.tex
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  497 Oct 17 18:24 table5_efficiency.tex
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ find . -name "*.pth" | grep -v pycache
+./rtx4090_training_logs/simclr_test/best_model.pth
+./rtx4090_training_logs/simclr_test/checkpoint_epoch_10.pth
+./models/egc_expert_best.pth
+./models/adversarial_best.pth
+./models/._egc_expert_best.pth
+./models/mlgc_expert_checkpoint.pth
+./models/._detection_best.pth
+./models/segmentation_checkpoint.pth
+./models/._screening_checkpoint.pth
+./models/._adversarial_checkpoint.pth
+./models/._detection_checkpoint.pth
+./models/mlgc_expert_best.pth
+./models/screening_checkpoint.pth
+./models/._mlgc_expert_checkpoint.pth
+./models/._mlgc_expert_best.pth
+./models/screening_best.pth
+./models/._segmentation_best.pth
+./models/._screening_best.pth
+./models/._adversarial_best.pth
+./models/segmentation_best.pth
+./models/adversarial_checkpoint.pth
+./models/detection_best.pth
+./models/._egc_expert_checkpoint.pth
+./models/._segmentation_checkpoint.pth
+./models/detection_checkpoint.pth
+./models/egc_expert_checkpoint.pth
+./simclr_logs_rtx4090/checkpoint_epoch_90.pth
+./simclr_logs_rtx4090/checkpoint_epoch_80.pth
+./simclr_logs_rtx4090/checkpoint_epoch_60.pth
+./simclr_logs_rtx4090/checkpoint_epoch_40.pth
+./simclr_logs_rtx4090/best_model.pth
+./simclr_logs_rtx4090/checkpoint_epoch_100.pth
+./simclr_logs_rtx4090/checkpoint_epoch_50.pth
+./simclr_logs_rtx4090/checkpoint_epoch_30.pth
+./simclr_logs_rtx4090/checkpoint_epoch_20.pth
+./simclr_logs_rtx4090/checkpoint_epoch_10.pth
+./simclr_logs_rtx4090/checkpoint_epoch_70.pth
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ cat EXPERIMENT_SUMMARY.md
+# AFMAS 实验结果总结报告
+
+## 📊 训练结果
+
+### Agent性能汇总
+
+| Agent | 验证准确率 | F1-Score | Precision | Recall | 训练轮数 |
+|-------|-----------|----------|-----------|--------|---------|
+| screening | - | - | - | - | - |
+| egc_expert | - | - | - | - | - |
+| mlgc_expert | - | - | - | - | - |
+| detection | - | - | - | - | - |
+| segmentation | - | - | - | - | - |
+| adversarial | - | - | - | - | - |
+
+## 🎯 AFMAS系统性能
+
+基于三阶段自适应协作的完整系统性能:
+
+- **整体准确率**: XX.XX%
+- **宏平均F1**: X.XXXX
+- **推理时间**: XX ms/image
+- **相比最佳单模型提升**: +X.XX%
+
+## 📈 实验对比
+
+### Baseline对比
+
+详见: `results/baseline_comparison_results.json`
+
+### 消融实验
+
+详见: `results/ablation_study_results.json`
+
+### 统计显著性
+
+详见: `results/statistical_tests_report.txt`
+
+## 📁 生成文件清单
+
+### 模型文件
+- `models/screening_best.pth`
+- `models/egc_expert_best.pth`
+- `models/mlgc_expert_best.pth`
+- `models/detection_best.pth`
+- `models/segmentation_best.pth`
+- `models/adversarial_best.pth`
+
+### 实验结果
+- `results/baseline_comparison_results.json`
+- `results/ablation_study_results.json`
+- `results/stage_analysis_results.json`
+- `results/efficiency_analysis_results.json`
+
+### 可视化
+- `results/gradcam_visualizations/` (注意力热图)
+- `results/confusion_matrix.png`
+- `results/roc_curves.png`
+
+### SCI期刊级别图表
+- `results/sci_figures/Figure1_Performance_Comparison.png/.pdf`
+- `results/sci_figures/Figure2_Confusion_Matrices.png/.pdf`
+- `results/sci_figures/Figure3_ROC_Curves.png/.pdf`
+- `results/sci_figures/Figure4_Ablation_Study.png/.pdf`
+- `results/sci_figures/Figure5_Per_Class_Performance.png/.pdf`
+- `results/sci_figures/Supplementary_Training_Curves.png/.pdf`
+
+### 论文素材
+- `results/table1_baseline_comparison.tex`
+- `results/table2_ablation_study.tex`
+- `results/table3_stage_analysis.tex`
+- `results/table4_per_class.tex`
+- `results/table5_efficiency.tex`
+- `results/statistical_tests_report.txt`
+
+## 🎓 论文写作建议
+
+参考: `PAPER_WRITING_GUIDE.md`
+
+推荐投稿期刊:
+1. Computers in Biology and Medicine (IF 7.7, 二区)
+2. Artificial Intelligence in Medicine (IF 7.5, 二区)
+
+## ⏱️ 实验完成时间
+
+- 训练开始: $(head -1 training_log_gpu.txt)
+- 训练结束: $(date)
+- 总耗时: 自动计算
+
+---
+生成时间: $(date)
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ cat experiment_results/all_experiments_summary.json
+{
+  "experiment_1_baseline": {
+    "AFMAS": {
+      "accuracy": 0.5529715762273901,
+      "precision": 0.7165296884185772,
+      "recall": 0.623464394483797,
+      "f1": 0.5700149208932911,
+      "avg_time": 0.14303013397433653
+    },
+    "ScreeningAgent": {
+      "accuracy": 0.5400516795865633,
+      "precision": 0.7170079646626749,
+      "recall": 0.6162611641515244,
+      "f1": 0.557443770899543,
+      "avg_time": 0.03402005363188357
+    },
+    "DetectionAgent": {
+      "accuracy": 0.5762273901808785,
+      "precision": 0.7660619573663051,
+      "recall": 0.657444478664066,
+      "f1": 0.6006735538815017,
+      "avg_time": 0.032592912669021645
+    },
+    "EGCExpertAgent": {
+      "accuracy": 0.4289405684754522,
+      "precision": 0.7250068927488282,
+      "recall": 0.5168531636040106,
+      "f1": 0.4346186171412172,
+      "avg_time": 0.03476707325425259
+    },
+    "MLGCExpertAgent": {
+      "accuracy": 0.751937984496124,
+      "precision": 0.8062171412441339,
+      "recall": 0.7420608657855478,
+      "f1": 0.7269793023592417,
+      "avg_time": 0.053217919913989324
+    },
+    "SegmentationAgent": {
+      "accuracy": 0.5348837209302325,
+      "precision": 0.689650663684894,
+      "recall": 0.5777469801183999,
+      "f1": 0.520484362042046,
+      "avg_time": 0.18876245656370808
+    },
+    "AdversarialAgent": {
+      "accuracy": 0.7674418604651163,
+      "precision": 0.7814307547231164,
+      "recall": 0.8119202231410555,
+      "f1": 0.773745941395759,
+      "avg_time": 0.009730557754674315
+    }
+  },
+  "experiment_2_ensemble": {
+    "AFMAS": {
+      "accuracy": 0.5529715762273901,
+      "precision": 0.7165296884185772,
+      "recall": 0.623464394483797,
+      "f1": 0.5700149208932911
+    },
+    "Voting": {
+      "accuracy": 0.6020671834625323,
+      "precision": 0.7380323054331864,
+      "recall": 0.65966875406358,
+      "f1": 0.617958097391397
+    },
+    "Average_Probability": {
+      "accuracy": 0.58656330749354,
+      "precision": 0.7282220591831744,
+      "recall": 0.6507203230332272,
+      "f1": 0.6039264828738513
+    },
+    "Weighted_Average": {
+      "accuracy": 0.58656330749354,
+      "precision": 0.7282220591831744,
+      "recall": 0.6507203230332272,
+      "f1": 0.6039264828738513
+    }
+  },
+  "experiment_4_phases": {
+    "EXPLORATION": {
+      "count": 213,
+      "accuracy": 0.6150234741784038,
+      "avg_time": 0.04368932706089647,
+      "percentage": 55.03875968992248
+    },
+    "ESCAPING": {
+      "count": 79,
+      "accuracy": 0.4936708860759494,
+      "avg_time": 0.5268644562250451,
+      "percentage": 20.41343669250646
+    },
+    "EXPLOITATION": {
+      "count": 95,
+      "accuracy": 0.4631578947368421,
+      "avg_time": 0.2706923534995631,
+      "percentage": 24.54780361757106
+    }
+  }
+
+
 
   # 查看models目录
   ls -lh models/
