@@ -1,4 +1,14 @@
-(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "baseline_comparison_results.json" 18_generate_sci_quality_figures.py
+  mv baseline_comparison_results.json ~/workspace/AFMAS_GastricCancer_Dataset/results/
+
+  然后验证文件已移动：
+
+  ls -la ~/workspace/AFMAS_GastricCancer_Dataset/results/baseline_comparison_results.json
+
+  最后再运行图表生成：
+
+  python3 18_generate_sci_quality_figures.py
+  
+  (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "baseline_comparison_results.json" 18_generate_sci_quality_figures.py
 62:    with open(results_dir / 'baseline_comparison_results.json', 'r') as f:
 475:    if not (results_dir / 'baseline_comparison_results.json').exists():
 476:        print("⚠ 警告: baseline_comparison_results.json 不存在")
