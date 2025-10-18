@@ -1,3 +1,23 @@
+⏺ 找到了！问题在第322-325行。代码假设：
+  - agent_features[0] 是512维
+  - agent_features[1] 是1024维
+  - features 是2048维
+
+  但实际上所有agent的输出可能都是相同维度的。
+
+  查看agent_features的实际维度：
+
+  sed -n '230,250p' 25_da_afmas.py
+
+  快速修复方案 - 修改MultiLevelDomainDiscriminator的初始化，让所有层都使用2048维：
+
+  # 修复维度不匹配（所有层都用2048）
+  sed -i 's/feature_dims=(512, 1024, 2048)/feature_dims=(2048, 2048, 2048)/g' 25_da_afmas.py
+
+  # 验证修复
+  grep "feature_dims=" 25_da_afmas.py
+  
+
 ⏺ 找到了问题！MultiLevelDomainDiscriminator 期望 (512, 1024, 2048) 维度的特征，但实际传入的第一个特征是2048维。
 
   需要查看在forward方法中如何传递multi_level_features：
