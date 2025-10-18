@@ -603,5 +603,23 @@ sed: can't read s|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/05_agent_models.p
 bash: syntax error near unexpected token `('
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
 
-  
+  ##修复6
 
+1. 修复其他路径：
+  sed -i 's|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/24_gradient_reversal_layer.py|./24_gradient_reversal_layer.py|g' 25_da_afmas.py
+
+  2. 继续修复：
+  sed -i 's|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/05_agent_models.py|./05_agent_models.py|g' 25_da_afmas.py
+
+  3. 验证所有修复：
+  grep "Volumes" 25_da_afmas.py
+
+  如果没有输出，说明所有路径都修复了！
+
+  4. 重新启动训练：
+  nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data
+  /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 >
+  ~/da_afmas_training.log 2>&1 &
+
+  5. 查看日志：
+  sleep 3 && tail -n 30 ~/da_afmas_training.log
