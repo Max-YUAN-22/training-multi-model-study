@@ -1,3 +1,12 @@
+⏺ 找到了！代码结构是对的（2048 -> 1024 -> 512 -> 256 -> 2）。
+
+  问题在于 MultiLevelDomainDiscriminator 可能在初始化子判别器时没有传递正确的 feature_dim。
+
+  查看MultiLevelDomainDiscriminator的初始化：
+
+  sed -n '120,180p' 23_domain_discriminator.py
+
+
 ⏺ 看到了！feature_dim=2048 是正确的。但需要看discriminator是如何构建的。查看完整的初始化代码：
 
   # 查看__init__方法的完整内容
