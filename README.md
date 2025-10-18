@@ -1,3 +1,31 @@
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "baseline_comparison_results.json" 18_generate_sci_quality_figures.py
+62:    with open(results_dir / 'baseline_comparison_results.json', 'r') as f:
+475:    if not (results_dir / 'baseline_comparison_results.json').exists():
+476:        print("⚠ 警告: baseline_comparison_results.json 不存在")
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "results_dir" 18_generate_sci_quality_figures.py | head -10
+52:def create_figure_1_performance_comparison(results_dir: Path, output_dir: Path):
+62:    with open(results_dir / 'baseline_comparison_results.json', 'r') as f:
+182:def create_figure_2_confusion_matrices(results_dir: Path, output_dir: Path):
+248:def create_figure_3_roc_curves(results_dir: Path, output_dir: Path):
+293:def create_figure_4_ablation_study(results_dir: Path, output_dir: Path):
+299:    with open(results_dir / 'ablation_study_results.json', 'r') as f:
+369:def create_figure_5_per_class_performance(results_dir: Path, output_dir: Path):
+470:    results_dir = Path("/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/results")
+475:    if not (results_dir / 'baseline_comparison_results.json').exists():
+484:    create_figure_1_performance_comparison(results_dir, output_dir)
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ https://github.com/Max-YUAN-22/training-multi-model-study/blob/main/README.md#:~:text=mv%20baseline_comparison_results.json%20~/workspace/AFMAS_GastricCancer_Dataset/results/
+bash: https://github.com/Max-YUAN-22/training-multi-model-study/blob/main/README.md#:~:text=mv%20baseline_comparison_results.json%20~/workspace/AFMAS_GastricCancer_Dataset/results/: No such file or directory
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ python3 18_generate_sci_quality_figures.py
+
+================================================================================
+生成SCI期刊级别的高质量可视化图表
+================================================================================
+⚠ 警告: baseline_comparison_results.json 不存在
+  需要先运行 14_run_experiments.py
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
+
+
+
 找到了！脚本在 results_dir 目录下查找这个文件。让我看看 results_dir 的定义：
 
   grep -n "results_dir" 18_generate_sci_quality_figures.py | head -10
