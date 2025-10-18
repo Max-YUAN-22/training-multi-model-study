@@ -1,3 +1,27 @@
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "def train" 25_da_afmas.py grep -n "for epoch" 25_da_afmas.py
+grep: grep: No such file or directory
+grep: for epoch: No such file or directory
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh train.py da.py
+ls: cannot access 'train.py': No such file or directory
+ls: cannot access 'da.py': No such file or directory
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh train.py da.py
+ls: cannot access 'train.py': No such file or directory
+ls: cannot access 'da.py': No such file or directory
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh *.py | grep -E "(train|da|afmas)"
+
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  15K Oct 17 18:24 07_afmas_system.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  13K Oct 17 18:24 12_test_on_real_data.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  19K Oct 17 18:24 13_train_agents.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  13K Oct 17 18:24 13_train_agents_resume.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  21K Oct 17 18:24 16_afmas_v2_optimized.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  18K Oct 17 18:24 19_train_ensemble_agent.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  22K Oct 18 14:04 25_da_afmas.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 5.9K Oct 17 18:24 26_sample_labeled_data.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  14K Oct 17 19:26 27_simclr_pretraining_cuda.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user  15K Oct 17 18:24 27_simclr_pretraining.py
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh 13_train_agents.py
+-rwxr-xr-x 1 ubuntu-user ubuntu-user 19K Oct 17 18:24 13_train_agents.py
+
 ⏺ 命令格式错了。分别执行：
 
   ls -lh *train*.py *da*.py
