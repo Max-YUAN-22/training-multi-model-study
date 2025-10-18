@@ -1,4 +1,14 @@
-(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ ls -la ~/workspace/AFMAS_GastricCancer_Dataset/results/ 
+ls -la ~/workspace/AFMAS_GastricCancer_Dataset/results/sci_figures/
+
+  同时，查看统计测试报告的内容：
+
+  cat ~/workspace/AFMAS_GastricCancer_Dataset/results/statistical_tests_report.txt
+  
+  
+  try
+  
+  
+  (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ ls -la ~/workspace/AFMAS_GastricCancer_Dataset/results/ 
 total 176
 drwxr-xr-x  3 ubuntu-user ubuntu-user   4096 Oct 17 18:24 .
 drwxr-xr-x 14 ubuntu-user ubuntu-user   4096 Oct 18 14:04 ..
