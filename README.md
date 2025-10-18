@@ -1,3 +1,10 @@
+head -80 ~/workspace/External_Validation_Datasets/21_external_validation_simple.py
+
+  或者看看整个脚本有多少行，然后分段查看：
+
+  wc -l ~/workspace/External_Validation_Datasets/21_external_validation_simple.py
+
+
 (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ grep -n "model|pth|load" ~/workspace/External_Validation_Datasets/21_external_validation_simple.py | head -30
 (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ grep -n "model|pth|load" ~/workspace/External_Validation_Datasets/21_external_validation_simple.py | head -30
 
