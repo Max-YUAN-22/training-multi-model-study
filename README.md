@@ -1,3 +1,34 @@
+
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sed -n '230,250p' 25_da_afmas.py
+
+            return_agent_features: 是否返回各agent的单独特征
+
+        返回:
+            combined_features: 融合后的特征 (batch_size, 2048)
+            agent_features: 各agent的特征列表（如果return_agent_features=True）
+        """
+        agent_features = []
+        agent_logits = []
+
+        # 从每个agent提取特征
+        for agent in self.agents:
+            logit, feat = agent(x, return_features=True)
+            agent_features.append(feat)
+            agent_logits.append(logit)
+
+        # 拼接所有特征
+        concatenated_features = torch.cat(agent_features, dim=1)  # (B, total_feat_dim)
+
+        # 特征投影（降维到2048）
+        projected_features = self.feature_projector(concatenated_features)  # (B, 2048)
+
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sed -i 's/feature_dims=(512, 1024, 2048)/feature_dims=(2048, 2048, 2048)/g' 25_da_afmas.py
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep "feature_dims=" 25_da_afmas.py
+                feature_dims=(2048, 2048, 2048),
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
+
+
+
 ⏺ 找到了！问题在第322-325行。代码假设：
   - agent_features[0] 是512维
   - agent_features[1] 是1024维
