@@ -1,3 +1,13 @@
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ python3 21_external_validation_simple.py --model_path ../AFMAS_GastricCancer_Dataset/models/adversarial_best.pth --test_data ./GasHisSDB_full/GasHisSDB/160
+
+usage: 21_external_validation_simple.py [-h] [--data_dir DATA_DIR]
+                                        [--image_size IMAGE_SIZE]
+                                        [--output_dir OUTPUT_DIR]
+                                        [--batch_size BATCH_SIZE]
+                                        [--device DEVICE]
+21_external_validation_simple.py: error: unrecognized arguments: --model_path ../AFMAS_GastricCancer_Dataset/models/adversarial_best.pth --test_data ./GasHisSDB_full/GasHisSDB/160
+
+  
   Step 1: 外部验证（30分钟）
 
   cd ~/workspace/External_Validation_Datasets
