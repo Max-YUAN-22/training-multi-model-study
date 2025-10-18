@@ -1,3 +1,100 @@
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ ls -la ~/workspace/External_Validation_Datasets/validation_results/ 
+total 120
+drwxrwxr-x 2 ubuntu-user ubuntu-user   4096 Oct 18 14:52 .
+drwxr-xr-x 7 ubuntu-user ubuntu-user   4096 Oct 18 14:52 ..
+-rw-rw-r-- 1 ubuntu-user ubuntu-user 106701 Oct 18 14:52 external_validation_confusion_matrix.png
+-rw-rw-r-- 1 ubuntu-user ubuntu-user    517 Oct 18 14:52 external_validation_results.json
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ cat ~/workspace/External_Validation_Datasets/validation_results/external_validation_results.json
+{
+  "overall": {
+    "accuracy": 0.5326282898690061,
+    "precision": 0.42583556965113445,
+    "recall": 0.5320024382810119,
+    "f1_score": 0.47303523035230355,
+    "total_samples": 33284
+  },
+  "confusion_matrix": [
+    [
+      10746,
+      9414
+    ],
+    [
+      6142,
+      6982
+    ]
+  ],
+  "per_class": {
+    "Normal": {
+      "true_count": 20160,
+      "pred_count": 16888,
+      "correct": 10746
+    },
+    "Abnormal": {
+      "true_count": 13124,
+      "pred_count": 16396,
+      "correct": 6982
+    }
+  }
+}(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ls -la ~/workspace/AFMAS_GastricCancer_Dataset/ | grep -E ".py$|results|figures""
+
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._01_deduplicate_and_organize.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   13401 Oct 17 18:24 01_deduplicate_and_organize.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._02_three_phase_controller.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   11713 Oct 17 18:24 02_three_phase_controller.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._03_covariance_collaboration.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   13706 Oct 17 18:24 03_covariance_collaboration.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._04_agent_base.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   14607 Oct 17 18:24 04_agent_base.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._05_agent_models.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   12833 Oct 18 13:31 05_agent_models.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._06_diversity_maintenance.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   13172 Oct 17 18:24 06_diversity_maintenance.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._07_afmas_system.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   15251 Oct 17 18:24 07_afmas_system.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._08_integrate_xgboost.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    9579 Oct 17 18:24 08_integrate_xgboost.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._09_integrate_xgboost_vgg.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   12073 Oct 17 18:24 09_integrate_xgboost_vgg.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._10_create_feature_selector.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    3720 Oct 17 18:24 10_create_feature_selector.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._11_recreate_selector.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    1648 Oct 17 18:24 11_recreate_selector.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._12_test_on_real_data.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   12683 Oct 17 18:24 12_test_on_real_data.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   18602 Oct 17 18:24 13_train_agents.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   12371 Oct 17 18:24 13_train_agents_resume.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   13817 Oct 17 18:24 14_run_experiments.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   14588 Oct 17 18:24 15_attention_visualization.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._15b_simple_gradcam.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    9328 Oct 17 18:24 15b_simple_gradcam.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._15_gradcam_visualization.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   15792 Oct 17 18:24 15_gradcam_visualization.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   20965 Oct 17 18:24 16_afmas_v2_optimized.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   15640 Oct 17 18:24 16_statistical_tests.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   14648 Oct 17 18:24 17_comparison_analysis.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   15163 Oct 17 18:24 17_generate_paper_tables.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   20733 Oct 17 18:24 18_generate_sci_quality_figures.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   16317 Oct 17 18:24 18_overfitting_analysis.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   14924 Oct 17 18:24 19_publication_readiness_assessment.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   18078 Oct 17 18:24 19_train_ensemble_agent.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   11773 Oct 17 18:24 23_domain_discriminator.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   13795 Oct 17 18:24 24_gradient_reversal_layer.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   21712 Oct 18 14:04 25_da_afmas.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    6033 Oct 17 18:24 26_sample_labeled_data.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   13778 Oct 17 19:26 27_simclr_pretraining_cuda.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   14731 Oct 17 18:24 27_simclr_pretraining.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    1495 Oct 17 18:24 afmas_v2_results.json
+drwxr-xr-x  2 ubuntu-user ubuntu-user    4096 Oct 17 18:24 comparison_results
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._experiment_results
+drwxr-xr-x  2 ubuntu-user ubuntu-user    4096 Oct 17 18:24 experiment_results
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._gradcam_results
+drwxr-xr-x  6 ubuntu-user ubuntu-user    4096 Oct 17 18:24 gradcam_results
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._results
+drwxr-xr-x  3 ubuntu-user ubuntu-user    4096 Oct 17 18:24 results
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._test_results_real_data.json
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    2831 Oct 17 18:24 test_results_real_data.json
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    4096 Oct 17 18:24 ._xgboost_selector.py
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    1683 Oct 17 18:24 xgboost_selector.py
 现在请在实验室机器上查看生成的结果：
 
   ls -la ~/workspace/External_Validation_Datasets/validation_results/
