@@ -1,3 +1,12 @@
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ ls -la ./GasHisSDB_full/GasHisSDB/160/
+total 2588
+drwxr-xr-x 4 ubuntu-user ubuntu-user    4096 Oct 17 18:36 .
+drwxr-xr-x 5 ubuntu-user ubuntu-user    4096 Oct 17 18:43 ..
+-rwxr-xr-x 1 ubuntu-user ubuntu-user    4096 Oct 17 18:35 ._Abnormal
+drwxr-xr-x 2 ubuntu-user ubuntu-user 1081344 Oct 17 18:35 Abnormal
+-rwxr-xr-x 1 ubuntu-user ubuntu-user    4096 Oct 17 18:36 ._Normal
+drwxr-xr-x 2 ubuntu-user ubuntu-user 1552384 Oct 17 18:36 Normal
+
 ls -la ./GasHisSDB_full/GasHisSDB/160/
 
 (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ sed -i "s|/Volumes/Seagate/AFMAS_GastricCancer_Dataset|/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset|g" 21_external_validation_simple.py
