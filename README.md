@@ -1,3 +1,17 @@
+  # 注释掉多层级判别器的调用
+  sed -i '318,333s/^/#/' 25_da_afmas.py
+
+  # 验证
+  sed -n '318,333p' 25_da_afmas.py
+
+  执行后重新启动：
+  nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data
+  /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 >
+  ~/da_afmas_training.log 2>&1 &
+  sleep 3 && tail -n 40 ~/da_afmas_training.log
+  
+try
+
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 > ~/da_afmas_training.log 2>&1 &
 
 [1] 16463
