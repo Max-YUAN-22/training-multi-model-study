@@ -1,3 +1,66 @@
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ python3 21_external_validation_simple.py
+--data_dir ./GasHisSDB_full/GasHisSDB
+--image_size 160
+--output_dir ./validation_results
+--batch_size 32
+--device cuda
+================================================================================
+AFMAS v2 外部验证 - GasHisSDB
+================================================================================
+数据目录: /Volumes/Seagate/External_Validation_Datasets/GasHisSDB
+图像尺寸: 160x160
+设备: cpu
+
+✓ 加载 0 张图像
+  - Abnormal: 0 张
+  - Normal: 0 张
+/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+✓ 加载 adversarial agent from adversarial_best.pth
+✓ 加载 mlgc agent from mlgc_expert_best.pth
+
+================================================================================
+开始外部验证...
+================================================================================
+评估进度: 0it [00:00, ?it/s]
+/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/site-packages/numpy/lib/_function_base_impl.py:557: RuntimeWarning: Mean of empty slice.
+  avg = a.mean(axis, **keepdims_kw)
+/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/site-packages/numpy/_core/_methods.py:138: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+
+================================================================================
+外部验证结果 - GasHisSDB
+================================================================================
+
+总体性能:
+  准确率 (Accuracy): nan (nan%)
+  精确率 (Precision): 0.0000
+  召回率 (Recall): 0.0000
+  F1分数: 0.0000
+
+样本数: 0
+
+混淆矩阵:
+                预测Normal  预测Abnormal
+Traceback (most recent call last):
+  File "/home/ubuntu-user/workspace/External_Validation_Datasets/21_external_validation_simple.py", line 280, in <module>
+    main()
+  File "/home/ubuntu-user/workspace/External_Validation_Datasets/21_external_validation_simple.py", line 255, in main
+    results, cm = external_validation(adversarial_model, mlgc_model, dataloader, device)
+  File "/home/ubuntu-user/workspace/External_Validation_Datasets/21_external_validation_simple.py", line 160, in external_validation
+    print(f"  真实Normal       {cm[0,0]:6d}      {cm[0,1]:6d}")
+IndexError: index 0 is out of bounds for axis 0 with size 0
+--data_dir: command not found
+--image_size: command not found
+--output_dir: command not found
+--batch_size: command not found
+--device: command not found
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ 
+
+
+
 ⏺ 完美！我看到问题了。脚本里硬编码了Mac路径，需要修改。有3个地方需要改：
 
   1. sys.path.append (第9行)：/Volumes/Seagate/AFMAS_GastricCancer_Dataset
