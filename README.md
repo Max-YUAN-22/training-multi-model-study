@@ -1,3 +1,97 @@
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ps aux | grep 25_da_afmas.py
+ubuntu-+   18121  0.0  0.0   9284  1992 pts/2    S+   14:07   0:00 grep --color=auto 25_da_afmas.py
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ tail -n 100 25_da_afmas.py | head -80
+    trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    print(f"\n  - 总参数量: {total_params:,}")
+    print(f"  - 可训练参数: {trainable_params:,}")
+
+    # 测试2: 前向传播
+    print("\n[测试2] 前向传播测试")
+    print("-" * 80)
+
+    batch_size = 4
+    x = torch.randn(batch_size, 3, 224, 224).to(device)
+    class_labels = torch.randint(0, 3, (batch_size,)).to(device)
+    domain_labels = torch.randint(0, 2, (batch_size,)).to(device)
+
+    print(f"输入形状: {x.shape}")
+    print(f"类别标签: {class_labels}")
+    print(f"域标签: {domain_labels}")
+
+    # 训练模式前向传播
+    model.train()
+    outputs = model(x, domain_label=domain_labels, training=True)
+
+    print(f"\n输出keys: {list(outputs.keys())}")
+    print(f"类别logits形状: {outputs['class_logits'].shape}")
+    print(f"域logits形状: {outputs['domain_logits'].shape}")
+    print(f"Agent权重形状: {outputs['agent_weights'].shape}")
+    print(f"加权logits形状: {outputs['weighted_logits'].shape}")
+
+    # 测试3: 损失计算
+    print("\n[测试3] 损失计算测试")
+    print("-" * 80)
+
+    criterion = DA_AFMAS_Loss(
+        lambda_domain=1.0,
+        lambda_agent=0.1,
+        lambda_multi_level=0.5
+    )
+
+    losses = criterion(
+        outputs=outputs,
+        class_labels=class_labels,
+        domain_labels=domain_labels,
+        compute_domain_loss=True
+    )
+
+    print("损失明细:")
+    for loss_name, loss_value in losses.items():
+        print(f"  {loss_name}: {loss_value.item():.4f}")
+
+    # 测试4: 反向传播
+    print("\n[测试4] 反向传播测试")
+    print("-" * 80)
+
+    total_loss = losses['total_loss']
+    total_loss.backward()
+
+    print(f"✓ 反向传播成功")
+    print(f"  总损失: {total_loss.item():.4f}")
+
+    # 检查梯度
+    has_grad = sum([1 for p in model.parameters() if p.grad is not None])
+    total_tensors = sum([1 for p in model.parameters()])
+    print(f"  有梯度的参数: {has_grad}/{total_tensors}")
+
+    # 测试5: Lambda更新
+    print("\n[测试5] Lambda自适应更新测试")
+    print("-" * 80)
+
+    progress_points = [0.0, 0.25, 0.5, 0.75, 1.0]
+    print("训练进度 -> Lambda值:")
+    for progress in progress_points:
+        model.update_lambda(progress)
+        print(f"  {progress:.2f} -> {model.get_lambda():.4f}")
+
+    # 测试6: 推理模式
+    print("\n[测试6] 推理模式测试")
+    print("-" * 80)
+
+    model.eval()
+    with torch.no_grad():
+        outputs_eval = model(x, training=False)
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "def train" 25_da_afmas.py grep -n "for epoch" 25_da_afmas.py
+grep: grep: No such file or directory
+grep: for epoch: No such file or directory
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh train.py da.py
+ls: cannot access 'train.py': No such file or directory
+ls: cannot access 'da.py': No such file or directory
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
+
+
+
+
 训练已经结束了，但看起来只运行了测试代码，没有真正的训练循环。这个脚本可能主要是测试/演示代码。
 
   检查脚本的main函数：
