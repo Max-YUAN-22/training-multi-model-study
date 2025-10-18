@@ -1,3 +1,13 @@
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 > ~/da_afmas_training.log 2>&1 & sleep 3 && tail -n 40 ~/da_afmas_training.log
+[1] 17934
+nohup: ignoring input
+/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+
+  
+  
   # 也注释掉第334行
   sed -i '334s/^/#/' 25_da_afmas.py
 
