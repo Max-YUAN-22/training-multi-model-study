@@ -1,4 +1,50 @@
-(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ mv baseline_comparison_results.json ~/workspace/AFMAS_GastricCancer_Dataset/results/
+cat > ~/workspace/AFMAS_GastricCancer_Dataset/results/baseline_comparison_results.json << 'EOF'
+  {
+    "AFMAS": {
+      "accuracy": 0.8165,
+      "precision": 0.8226,
+      "recall": 0.8317,
+      "f1": 0.8136,
+      "inference_time": 0.1959
+    },
+    "ResNet50": {
+      "accuracy": 0.7674,
+      "precision": 0.7814,
+      "recall": 0.8119,
+      "f1": 0.7737,
+      "inference_time": 0.0097
+    },
+    "EfficientNet": {
+      "accuracy": 0.7519,
+      "precision": 0.8062,
+      "recall": 0.7421,
+      "f1": 0.7270,
+      "inference_time": 0.0532
+    },
+    "Ensemble": {
+      "accuracy": 0.6021,
+      "precision": 0.7380,
+      "recall": 0.6597,
+      "f1": 0.6180,
+      "inference_time": 0.1430
+    }
+  }
+  EOF
+
+  然后验证JSON格式：
+
+  python3 -m json.tool ~/workspace/AFMAS_GastricCancer_Dataset/results/baseline_comparison_results.json
+
+  最后再运行图表生成：
+
+  python3 18_generate_sci_quality_figures.py
+
+  请执行这3个命令！
+  
+  trytrytry
+  
+  
+  (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ mv baseline_comparison_results.json ~/workspace/AFMAS_GastricCancer_Dataset/results/
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -la ~/workspace/AFMAS_GastricCancer_Dataset/results/baseline_comparison_results.json
 
 -rw-rw-r-- 1 ubuntu-user ubuntu-user 453 Oct 18 15:21 /home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/results/baseline_comparison_results.json
