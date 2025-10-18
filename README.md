@@ -1,4 +1,21 @@
-(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ cd ~/workspace/AFMAS_GastricCancer_Dataset
+
+  # 查看models目录
+  ls -lh models/
+
+  # 查看results目录
+  ls -lh results/
+
+  # 查找所有.pth文件
+  find . -name "*.pth" | grep -v pycache
+
+  # 查看实验摘要
+  cat EXPERIMENT_SUMMARY.md
+
+  # 查看实验结果
+  cat experiment_results/all_experiments_summary.json
+  
+  
+  (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ cd ~/workspace/AFMAS_GastricCancer_Dataset
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh models/ ls -lh results/ find . -name "*.pth" -o -name "model" | grep -v pycache
 ls: invalid option -- 'e'
 Try 'ls --help' for more information.
