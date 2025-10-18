@@ -1,3 +1,9 @@
+python3 21_external_validation_simple.py --data_dir ./GasHisSDB_full/GasHisSDB --image_size 160 --output_dir ./validation_results --batch_size 32 --device cuda
+  
+  这次应该能成功加载数据了！如果还是显示加载 0 张图像，可能需要检查一下图片格式：
+
+  ls ./GasHisSDB_full/GasHisSDB/160/Normal/ | head -20
+  
 (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ ls -la ./GasHisSDB_full/GasHisSDB/160/
 total 2588
 drwxr-xr-x 4 ubuntu-user ubuntu-user    4096 Oct 17 18:36 .
