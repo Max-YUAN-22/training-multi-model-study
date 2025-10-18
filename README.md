@@ -1,3 +1,21 @@
+太好了！训练启动成功！
+
+  看到警告是正常的（只是PyTorch版本兼容性提示），不是错误！
+
+  继续查看更多日志确认训练正常：
+
+  tail -f ~/da_afmas_training.log
+
+  或者查看进程是否还在运行：
+
+  ps aux | grep 25_da_afmas.py
+
+  如果训练正常，你会看到loss下降的信息！按Ctrl+C可以退出日志查看（训练会继续在后台运行）
+
+  告诉我看到了什么！ 📊🚀
+
+
+
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 > ~/da_afmas_training.log 2>&1 & sleep 3 && tail -n 40 ~/da_afmas_training.log
 [1] 17934
 nohup: ignoring input
