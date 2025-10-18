@@ -1,4 +1,16 @@
-(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ python3 21_external_validation_simple.py --data_dir ./GasHisSDB_full/GasHisSDB --image_size 160 --output_dir ./validation_results --batch_size 32 --device cuda
+现在请在实验室机器上查看生成的结果：
+
+  ls -la ~/workspace/External_Validation_Datasets/validation_results/
+  cat ~/workspace/External_Validation_Datasets/validation_results/external_validation_results.json
+
+  同时，我们需要查看原始训练数据集中有哪些已生成的图表和分析脚本。请运行：
+
+  ls -la ~/workspace/AFMAS_GastricCancer_Dataset/ | grep -E "\.py$|results|figures"
+
+  把这些输出发给我，然后我们继续生成ROC曲线和统计分析！
+  
+  
+  (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ python3 21_external_validation_simple.py --data_dir ./GasHisSDB_full/GasHisSDB --image_size 160 --output_dir ./validation_results --batch_size 32 --device cuda
 
 ================================================================================
 AFMAS v2 外部验证 - GasHisSDB
