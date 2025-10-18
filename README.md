@@ -1,3 +1,67 @@
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sed -n '120,180p' 23_domain_discriminator.py
+
+    创新点:
+    - 不仅在最后的全局特征上做域适应
+    - 还在中间层特征上做域适应
+    - 多层级对齐，效果更好（参考MDAN, CVPR 2018）
+    """
+
+    def __init__(
+        self,
+        feature_dims: Tuple[int, ...] = (512, 1024, 2048),  # 不同层的特征维度
+        hidden_dim: int = 512,
+        dropout_rate: float = 0.5
+    ):
+        """
+        参数:
+            feature_dims: 多个层级的特征维度
+            hidden_dim: 判别器隐藏层维度
+            dropout_rate: Dropout比例
+        """
+        super().__init__()
+
+        # 为每个层级创建一个判别器
+        self.discriminators = nn.ModuleList([
+            DomainDiscriminator(
+                feature_dim=feat_dim,
+                hidden_dims=(hidden_dim, hidden_dim // 2),
+                dropout_rate=dropout_rate
+            )
+            for feat_dim in feature_dims
+        ])
+
+        self.num_levels = len(feature_dims)
+
+    def forward(
+        self,
+        multi_level_features: Tuple[torch.Tensor, ...]
+    ) -> Tuple[torch.Tensor, ...]:
+        """
+        前向传播
+
+        参数:
+            multi_level_features: 多层级特征 (level1, level2, level3, ...)
+
+        返回:
+            multi_level_logits: 多层级域分类logits
+        """
+        assert len(multi_level_features) == self.num_levels, \
+            f"Expected {self.num_levels} feature levels, got {len(multi_level_features)}"
+
+        domain_logits_list = []
+        for discriminator, features in zip(self.discriminators, multi_level_features):
+            logits = discriminator(features)
+            domain_logits_list.append(logits)
+
+        return tuple(domain_logits_list)
+
+    def compute_loss(
+        self,
+        multi_level_features: Tuple[torch.Tensor, ...],
+        domain_labels: torch.Tensor,
+        weights: Tuple[float, ...] = None
+
+
 ⏺ 找到了！代码结构是对的（2048 -> 1024 -> 512 -> 256 -> 2）。
 
   问题在于 MultiLevelDomainDiscriminator 可能在初始化子判别器时没有传递正确的 feature_dim。
