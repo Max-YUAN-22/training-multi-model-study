@@ -1,3 +1,52 @@
+(afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ python3 18_generate_sci_quality_figures.py
+================================================================================
+生成SCI期刊级别的高质量可视化图表
+================================================================================
+Traceback (most recent call last):
+  File "/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/pathlib.py", line 1175, in mkdir
+    self._accessor.mkdir(self, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Volumes/Seagate/AFMAS_GastricCancer_Dataset/results/sci_figures'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/pathlib.py", line 1175, in mkdir
+    self._accessor.mkdir(self, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Volumes/Seagate/AFMAS_GastricCancer_Dataset/results'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/pathlib.py", line 1175, in mkdir
+    self._accessor.mkdir(self, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Volumes/Seagate/AFMAS_GastricCancer_Dataset'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/pathlib.py", line 1175, in mkdir
+    self._accessor.mkdir(self, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Volumes/Seagate'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/18_generate_sci_quality_figures.py", line 525, in <module>
+    main()
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/18_generate_sci_quality_figures.py", line 472, in main
+    output_dir.mkdir(parents=True, exist_ok=True)
+  File "/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/pathlib.py", line 1179, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+  File "/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/pathlib.py", line 1179, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+  File "/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/pathlib.py", line 1179, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+  [Previous line repeated 1 more time]
+  File "/home/ubuntu-user/anaconda3/envs/afmas/lib/python3.10/pathlib.py", line 1175, in mkdir
+    self._accessor.mkdir(self, mode)
+PermissionError: [Errno 13] Permission denied: '/Volumes'
+
+
 python3 18_generate_sci_quality_figures.py
 
 ================================================================================(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ cd ~/workspace/AFMAS_GastricCancer_Dataset
