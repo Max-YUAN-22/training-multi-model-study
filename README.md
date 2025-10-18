@@ -806,3 +806,127 @@ RuntimeError: mat1 and mat2 shapes cannot be multiplied (4x2048 and 512x512)
   /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 >
   ~/da_afmas_training.log 2>&1 &
   sleep 3 && tail -n 30 ~/da_afmas_training.log
+
+went10
+
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ps aux | grep 25_da_afmas.py
+ubuntu-+   12581  0.0  0.0   9284  2044 pts/1    S+   13:40   0:00 grep --color=auto 25_da_afmas.py
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ cat ~/da_afmas_training.log
+nohup: ignoring input
+/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+================================================================================
+                                 测试 DA-AFMAS 框架                                 
+================================================================================
+
+使用设备: cpu
+
+[测试1] 创建 DA-AFMAS 模型
+--------------------------------------------------------------------------------
+✓ 模型创建成功
+  - Agents数量: 7
+  - 总特征维度: 11264
+  - 使用条件域判别器: True
+  - 使用多层级域适应: True
+
+  - 总参数量: 154,507,319
+  - 可训练参数: 154,507,319
+
+[测试2] 前向传播测试
+--------------------------------------------------------------------------------
+输入形状: torch.Size([4, 3, 224, 224])
+类别标签: tensor([0, 1, 2, 1])
+域标签: tensor([1, 1, 0, 0])
+Traceback (most recent call last):
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/25_da_afmas.py", line 535, in <module>
+    outputs = model(x, domain_label=domain_labels, training=True)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/25_da_afmas.py", line 333, in forward
+    multi_level_logits = self.multi_level_discriminator(multi_level_reversed)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/23_domain_discriminator.py", line 171, in forward
+    logits = discriminator(features)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/23_domain_discriminator.py", line 92, in forward
+    domain_logits = self.discriminator(features)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/container.py", line 244, in forward
+    input = module(input)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (4x2048 and 512x512)
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ tail -n 50 ~/da_afmas_training.log
+  - 使用多层级域适应: True
+
+  - 总参数量: 154,507,319
+  - 可训练参数: 154,507,319
+
+[测试2] 前向传播测试
+--------------------------------------------------------------------------------
+输入形状: torch.Size([4, 3, 224, 224])
+类别标签: tensor([0, 1, 2, 1])
+域标签: tensor([1, 1, 0, 0])
+Traceback (most recent call last):
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/25_da_afmas.py", line 535, in <module>
+    outputs = model(x, domain_label=domain_labels, training=True)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/25_da_afmas.py", line 333, in forward
+    multi_level_logits = self.multi_level_discriminator(multi_level_reversed)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/23_domain_discriminator.py", line 171, in forward
+    logits = discriminator(features)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/23_domain_discriminator.py", line 92, in forward
+    domain_logits = self.discriminator(features)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/container.py", line 244, in forward
+    input = module(input)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (4x2048 and 512x512)
