@@ -1,3 +1,47 @@
+(afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -la ~/workspace/AFMAS_GastricCancer_Dataset/.json
+ls: cannot access '/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/.json': No such file or directory
+(afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls
+01_deduplicate_and_organize.py          dataset_report.json
+02_three_phase_controller.py            diversity_history.png
+03_covariance_collaboration.py          experiment_results
+04_agent_base.py                        experiment_run.log
+05_agent_models.py                      experiments
+06_diversity_maintenance.py             experiments_full.log
+07_afmas_system.py                      experiments.log
+08_integrate_xgboost.py                 EXPERIMENT_SUMMARY.md
+09_integrate_xgboost_vgg.py             external_validation
+10_create_feature_selector.py           external_validation_options.md
+11_recreate_selector.py                 gradcam_results
+12_test_on_real_data.py                 models
+13_train_agents.py                      NEXT_STEPS.md
+13_train_agents_resume.py               nohup.out
+14_run_experiments.py                   overfitting_analysis_report.json
+15_attention_visualization.py           PAPER_OUTLINE.md
+15b_simple_gradcam.py                   PAPER_WRITING_GUIDE.md
+15_gradcam_visualization.py             processed_data
+16_afmas_v2_optimized.py                PROJECT_STATUS_FINAL.md
+16_statistical_tests.py                 PROJECT_SUMMARY.md
+17_comparison_analysis.py               PUBLICATION_ROADMAP.md
+17_generate_paper_tables.py             __pycache__
+18_generate_sci_quality_figures.py      quick_commands.sh
+18_overfitting_analysis.py              quick_start_rtx4090.sh
+19_publication_readiness_assessment.py  raw_data
+19_train_ensemble_agent.py              README.md
+23_domain_discriminator.py              README_PROJECT.md
+24_gradient_reversal_layer.py           REAL_DATA_TEST_REPORT.md
+25_da_afmas.py                          results
+26_sample_labeled_data.py               RTX4090_DEPLOYMENT_GUIDE.md
+27_simclr_pretraining_cuda.py           rtx4090_training_logs
+27_simclr_pretraining_cuda.py.backup    simclr_logs_rtx4090
+27_simclr_pretraining.py                STATUS_REPORT.md
+afmas_v2_results.json                   test_results_real_data.json
+agent_correlation_matrix.png            training_log_gpu_resume.txt
+auto_experiments.log                    training_log_gpu.txt
+auto_run_all_experiments.sh             training_log.txt
+check_training_status.sh                TRANSFER_TO_LAB.md
+comparison_results                      XGBOOST_INTEGRATION_COMPLETE.md
+CRITICAL_DIAGNOSIS_REPORT.md            xgboost_selector.py
+
 ls -la ~/workspace/AFMAS_GastricCancer_Dataset/*.json
   ls -la ~/workspace/AFMAS_GastricCancer_Dataset/experiment_results/*.json
 
