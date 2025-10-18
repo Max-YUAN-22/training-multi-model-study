@@ -732,4 +732,16 @@ try7
 
 For more details see pgrep(1).
 
+修复8:
+⏺ 命令又被合并了！分开执行：
 
+  1. 停止进程：
+  pkill -f 25_da_afmas.py
+
+  2. 启动训练：
+  nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data
+  /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 >
+  ~/da_afmas_training.log 2>&1 &
+
+  3. 查看日志：
+  sleep 3 && tail -n 30 ~/da_afmas_training.log
