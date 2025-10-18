@@ -786,4 +786,23 @@ RuntimeError: mat1 and mat2 shapes cannot be multiplied (4x2048 and 512x512)
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
 
 
+修复9
 
+  快速修复：检查并修改域判别器的输入维度
+
+  # 查看域判别器的输入维度定义
+  grep -n "512" 23_domain_discriminator.py | head -10
+
+  或者直接修复（将512改为2048）：
+  # 修复域判别器输入维度
+  sed -i 's/nn.Linear(512, 512)/nn.Linear(2048, 512)/g' 23_domain_discriminator.py
+
+  验证修复：
+  grep "nn.Linear(2048" 23_domain_discriminator.py
+
+  重新启动：
+  pkill -f 25_da_afmas.py
+  nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data
+  /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 >
+  ~/da_afmas_training.log 2>&1 &
+  sleep 3 && tail -n 30 ~/da_afmas_training.log
