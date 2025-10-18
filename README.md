@@ -1,3 +1,162 @@
+(afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ cat ~/workspace/AFMAS_GastricCancer_Dataset/afmas_v2_results.json
+{
+  "model": "AFMAS_v2.0",
+  "overall": {
+    "accuracy": 0.8165374677002584,
+    "precision": 0.8226397861785788,
+    "recall": 0.831652203415992,
+    "f1_score": 0.8136070853462157,
+    "avg_inference_time": 0.1959057642815957
+  },
+  "per_class": {
+    "EGC": {
+      "precision": 0.8816568047337278,
+      "recall": 0.7801047120418848,
+      "f1_score": 0.8277777777777777,
+      "support": 191
+    },
+    "MLGC": {
+      "precision": 0.9024390243902439,
+      "recall": 0.7254901960784313,
+      "f1_score": 0.8043478260869565,
+      "support": 102
+    },
+    "Non_Cancer": {
+      "precision": 0.6838235294117647,
+      "recall": 0.9893617021276596,
+      "f1_score": 0.808695652173913,
+      "support": 94
+    }
+  },
+  "confusion_matrix": [
+    [
+      149,
+      8,
+      34
+    ],
+    [
+      19,
+      74,
+      9
+    ],
+    [
+      1,
+      0,
+      93
+    ]
+  ],
+  "strategy_distribution": {
+    "full_ensemble": 114,
+    "single": 258,
+    "weighted": 15
+  },
+  "ensemble_weights": {
+    "adversarial": 0.49999999999999994,
+    "mlgc": 0.5,
+    "temperature": 1.0
+  },
+  "detailed_report": "              precision    recall  f1-score   support\n\n         EGC     0.8817    0.7801    0.8278       191\n        MLGC     0.9024    0.7255    0.8043       102\n  Non_Cancer     0.6838    0.9894    0.8087        94\n\n    accuracy                         0.8165       387\n   macro avg     0.8226    0.8317    0.8136       387\nweighted avg     0.8391    0.8165    0.8170       387\n"
+}(afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ cat ~/workspace/AFMAS_GastricCancer_Dataset/experiment_results/all_experiments_summary.json
+{
+  "experiment_1_baseline": {
+    "AFMAS": {
+      "accuracy": 0.5529715762273901,
+      "precision": 0.7165296884185772,
+      "recall": 0.623464394483797,
+      "f1": 0.5700149208932911,
+      "avg_time": 0.14303013397433653
+    },
+    "ScreeningAgent": {
+      "accuracy": 0.5400516795865633,
+      "precision": 0.7170079646626749,
+      "recall": 0.6162611641515244,
+      "f1": 0.557443770899543,
+      "avg_time": 0.03402005363188357
+    },
+    "DetectionAgent": {
+      "accuracy": 0.5762273901808785,
+      "precision": 0.7660619573663051,
+      "recall": 0.657444478664066,
+      "f1": 0.6006735538815017,
+      "avg_time": 0.032592912669021645
+    },
+    "EGCExpertAgent": {
+      "accuracy": 0.4289405684754522,
+      "precision": 0.7250068927488282,
+      "recall": 0.5168531636040106,
+      "f1": 0.4346186171412172,
+      "avg_time": 0.03476707325425259
+    },
+    "MLGCExpertAgent": {
+      "accuracy": 0.751937984496124,
+      "precision": 0.8062171412441339,
+      "recall": 0.7420608657855478,
+      "f1": 0.7269793023592417,
+      "avg_time": 0.053217919913989324
+    },
+    "SegmentationAgent": {
+      "accuracy": 0.5348837209302325,
+      "precision": 0.689650663684894,
+      "recall": 0.5777469801183999,
+      "f1": 0.520484362042046,
+      "avg_time": 0.18876245656370808
+    },
+    "AdversarialAgent": {
+      "accuracy": 0.7674418604651163,
+      "precision": 0.7814307547231164,
+      "recall": 0.8119202231410555,
+      "f1": 0.773745941395759,
+      "avg_time": 0.009730557754674315
+    }
+  },
+  "experiment_2_ensemble": {
+    "AFMAS": {
+      "accuracy": 0.5529715762273901,
+      "precision": 0.7165296884185772,
+      "recall": 0.623464394483797,
+      "f1": 0.5700149208932911
+    },
+    "Voting": {
+      "accuracy": 0.6020671834625323,
+      "precision": 0.7380323054331864,
+      "recall": 0.65966875406358,
+      "f1": 0.617958097391397
+    },
+    "Average_Probability": {
+      "accuracy": 0.58656330749354,
+      "precision": 0.7282220591831744,
+      "recall": 0.6507203230332272,
+      "f1": 0.6039264828738513
+    },
+    "Weighted_Average": {
+      "accuracy": 0.58656330749354,
+      "precision": 0.7282220591831744,
+      "recall": 0.6507203230332272,
+      "f1": 0.6039264828738513
+    }
+  },
+  "experiment_4_phases": {
+    "EXPLORATION": {
+      "count": 213,
+      "accuracy": 0.6150234741784038,
+      "avg_time": 0.04368932706089647,
+      "percentage": 55.03875968992248
+    },
+    "ESCAPING": {
+      "count": 79,
+      "accuracy": 0.4936708860759494,
+      "avg_time": 0.5268644562250451,
+      "percentage": 20.41343669250646
+    },
+    "EXPLOITATION": {
+      "count": 95,
+      "accuracy": 0.4631578947368421,
+      "avg_time": 0.2706923534995631,
+      "percentage": 24.54780361757106
+    }
+  }
+
+
 ls -la ~/workspace/AFMAS_GastricCancer_Dataset/*.json
   cat ~/workspace/AFMAS_GastricCancer_Dataset/afmas_v2_results.json
   cat ~/workspace/AFMAS_GastricCancer_Dataset/experiment_results/all_experiments_summary.json
