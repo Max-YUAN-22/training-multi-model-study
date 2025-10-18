@@ -1,3 +1,5 @@
+ls -la ./GasHisSDB_full/GasHisSDB/160/
+
 (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ sed -i "s|/Volumes/Seagate/AFMAS_GastricCancer_Dataset|/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset|g" 21_external_validation_simple.py
 (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ sed -i "s|/Volumes/Seagate/External_Validation_Datasets|/home/ubuntu-user/workspace/External_Validation_Datasets|g" 21_external_validation_simple.py
 (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ ls -la ./GasHisSDB_full/GasHisSDB/
