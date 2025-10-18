@@ -1,3 +1,5 @@
+python3 18_generate_sci_quality_figures.py
+
 ================================================================================(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ cd ~/workspace/AFMAS_GastricCancer_Dataset
 (afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ head -50 18_generate_sci_quality_figures.py
 
