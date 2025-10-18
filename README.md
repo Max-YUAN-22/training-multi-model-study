@@ -1,4 +1,14 @@
-(afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ python3 18_generate_sci_quality_figures.py
+
+⏺ 又是硬编码的Mac路径！需要修复这个脚本：
+
+  cd ~/workspace/AFMAS_GastricCancer_Dataset
+  sed -i "s|/Volumes/Seagate/AFMAS_GastricCancer_Dataset|/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset|g" 18_generate_sci_quality_figures.py
+
+  修复完后再运行：
+
+  python3 18_generate_sci_quality_figures.py
+  
+  (afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ python3 18_generate_sci_quality_figures.py
 ================================================================================
 生成SCI期刊级别的高质量可视化图表
 ================================================================================
