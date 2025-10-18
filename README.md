@@ -1,3 +1,24 @@
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ python3 18_generate_sci_quality_figures.pyy
+================================================================================
+生成SCI期刊级别的高质量可视化图表
+================================================================================
+
+生成图表...
+
+[1/6] 生成 Figure 1: Performance Comparison...
+Traceback (most recent call last):
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/18_generate_sci_quality_figures.py", line 525, in <module>
+    main()
+    ~~~~^^
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/18_generate_sci_quality_figures.py", line 484, in main
+    create_figure_1_performance_comparison(results_dir, output_dir)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/18_generate_sci_quality_figures.py", line 73, in create_figure_1_performance_comparison
+    baseline_data['EfficientNet-B0']['accuracy']['mean'],
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'EfficientNet-B0'
+
+
 
   python3 -c "import json; data={'ResNet50':{'accuracy':{'mean':0.7674},'f1':{'mean':0.7737},'precision':{'mean':0.7814},'recall':{'mean':0.8119}},'Efficie
   ntNet-B0':{'accuracy':{'mean':0.7519},'f1':{'mean':0.7270},'precision':{'mean':0.8062},'recall':{'mean':0.7421}},'Standard 
