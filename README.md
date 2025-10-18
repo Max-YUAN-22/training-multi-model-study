@@ -1,4 +1,29 @@
-ls: cannot access 'da.py': No such file or directory
+  Step 1: 外部验证（30分钟）
+
+  cd ~/workspace/External_Validation_Datasets
+  conda activate afmas
+
+  # 运行外部验证
+  python3 21_external_validation_simple.py --model_path ../AFMAS_GastricCancer_Dataset/models/adversarial_best.pth --test_data
+  ./GasHisSDB_full/GasHisSDB/160
+
+  Step 2: 生成所有论文图表（1小时）
+
+  cd ~/workspace/AFMAS_GastricCancer_Dataset
+
+  # 生成SCI级别图表
+  python3 18_generate_sci_quality_figures.py
+
+  # 查看生成的图表
+  ls -lh results/sci_figures/
+
+  Step 3: 统计分析（30分钟）
+
+  # 生成统计检验报告
+  python3 17_comparison_analysis.py
+  python3 16_statistical_tests.py
+  
+  ls: cannot access 'da.py': No such file or directory
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ls -lh *.py | grep -E "(train|da|afmas)"
 
 -rwxr-xr-x 1 ubuntu-user ubuntu-user  15K Oct 17 18:24 07_afmas_system.py
