@@ -1,3 +1,31 @@
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ ls -la ~/workspace/AFMAS_GastricCancer_Dataset/results/ 
+total 176
+drwxr-xr-x  3 ubuntu-user ubuntu-user   4096 Oct 17 18:24 .
+drwxr-xr-x 14 ubuntu-user ubuntu-user   4096 Oct 18 14:04 ..
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   4096 Oct 17 18:24 ._method_comparison.png
+-rwxr-xr-x  1 ubuntu-user ubuntu-user 134449 Oct 17 18:24 method_comparison.png
+drwxr-xr-x  2 ubuntu-user ubuntu-user   4096 Oct 17 18:24 sci_figures
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   4096 Oct 17 18:24 ._statistical_tests_report.txt
+-rwxr-xr-x  1 ubuntu-user ubuntu-user   3371 Oct 17 18:24 statistical_tests_report.txt
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    712 Oct 17 18:24 table1_baseline_comparison.tex
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    595 Oct 17 18:24 table2_ablation_study.tex
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    470 Oct 17 18:24 table3_stage_analysis.tex
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    683 Oct 17 18:24 table4_per_class.tex
+-rwxr-xr-x  1 ubuntu-user ubuntu-user    497 Oct 17 18:24 table5_efficiency.tex
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$  ls -la ~/workspace/AFMAS_GastricCancer_Dataset/experiment_results/
+total 40
+drwxr-xr-x  2 ubuntu-user ubuntu-user 4096 Oct 17 18:24 .
+drwxr-xr-x 14 ubuntu-user ubuntu-user 4096 Oct 18 14:04 ..
+-rwxr-xr-x  1 ubuntu-user ubuntu-user 4096 Oct 17 18:24 ._all_experiments_summary.json
+-rwxr-xr-x  1 ubuntu-user ubuntu-user 2755 Oct 17 18:24 all_experiments_summary.json
+-rwxr-xr-x  1 ubuntu-user ubuntu-user 4096 Oct 17 18:24 ._exp1_baseline_comparison.json
+-rwxr-xr-x  1 ubuntu-user ubuntu-user 1395 Oct 17 18:24 exp1_baseline_comparison.json
+-rwxr-xr-x  1 ubuntu-user ubuntu-user 4096 Oct 17 18:24 ._exp2_ensemble_comparison.json
+-rwxr-xr-x  1 ubuntu-user ubuntu-user  636 Oct 17 18:24 exp2_ensemble_comparison.json
+-rwxr-xr-x  1 ubuntu-user ubuntu-user 4096 Oct 17 18:24 ._exp4_phase_analysis.json
+-rwxr-xr-x  1 ubuntu-user ubuntu-user  449 Oct 17 18:24 exp4_phase_analysis.json
+
+
 
   ls -la ~/workspace/AFMAS_GastricCancer_Dataset/results/
   ls -la ~/workspace/AFMAS_GastricCancer_Dataset/experiment_results/
