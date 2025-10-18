@@ -1,4 +1,34 @@
-python3 -c "import json; data={'ResNet50':{'accuracy':{'mean':0.7674},'f1':{'mean':0.7737},'precision':{'mean':0.7814},'recall':{'mean':0.8119}},'Efficie
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ python3 -c "import json; data={'ResNet50':{'accuracy':{'mean':0.7674},'f1':{'mean':0.7737},'precision':{'mean':0.7814},'recall':{'mean':0.8119}},'Efficie ntNet-B0':{'accuracy':{'mean':0.7519},'f1':{'mean':0.7270},'precision':{'mean':0.8062},'recall':{'mean':0.7421}},'Standard Ensemble':{'accuracy':{'mean':0.6021},'f1':{'mean':0.6180},'precision':{'mean':0.7380},'recall':{'mean':0.6597}},'AFMAS':{'accuracy':{'mean':0.8165},'f1' :{'mean':0.8136},'precision':{'mean':0.8226},'recall':{'mean':0.8317}}}; json.dump(data, open('/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/results/baseline_comparison_results.json','w'), indent=2)"
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ python3 -c "import json; data={'ResNet50':{'accuracy':{'mean':0.7674},'f1':{'mean':0.7737},'precision':{'mean':0.7814},'recall':{'mean':0.8119}},'Efficie
+  ntNet-B0':{'accuracy':{'mean':0.7519},'f1':{'mean':0.7270},'precision':{'mean':0.8062},'recall':{'mean':0.7421}},'Standard 
+  Ensemble':{'accuracy':{'mean':0.6021},'f1':{'mean':0.6180},'precision':{'mean':0.7380},'recall':{'mean':0.6597}},'AFMAS':{'accuracy':{'mean':0.8165},'f1'
+  :{'mean':0.8136},'precision':{'mean':0.8226},'recall':{'mean':0.8317}}}; json.dump(data, 
+  open('/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/results/baseline_comparison_results.json','w'), indent=2)"
+  File "<string>", line 1
+    import json; data={'ResNet50':{'accuracy':{'mean':0.7674},'f1':{'mean':0.7737},'precision':{'mean':0.7814},'recall':{'mean':0.8119}},'Efficie
+                                                                                                                                         ^
+SyntaxError: unterminated string literal (detected at line 1)
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ python3 -c "import json; data={'ResNet50':{'accuracy':{'mean':0.7674},'f1':{'mean':0.7737},'precision':{'mean':0.7814},'recall':{'mean':0.8119}},'Efficie ntNet-B0':{'accuracy':{'mean':0.7519},'f1':{'mean':0.7270},'precision':{'mean':0.8062},'recall':{'mean':0.7421}},'Standard Ensemble':{'accuracy':{'mean':0.6021},'f1':{'mean':0.6180},'precision':{'mean':0.7380},'recall':{'mean':0.6597}},'AFMAS':{'accuracy':{'mean':0.8165},'f1' :{'mean':0.8136},'precision':{'mean':0.8226},'recall':{'mean':0.8317}}}; json.dump(data, open('/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/results/baseline_comparison_results.json','w'), indent=2)"
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ python3 -c "import json; data={'ResNet50':{'accuracy':{'mean':0.7674},'f1':{'mean':0.7737},'precision':{'mean':0.7814},'recall':{'mean':0.8119}},'Efficie
+  ntNet-B0':{'accuracy':{'mean':0.7519},'f1':{'mean':0.7270},'precision':{'mean':0.8062},'recall':{'mean':0.7421}},'Standard 
+  Ensemble':{'accuracy':{'mean':0.6021},'f1':{'mean':0.6180},'precision':{'mean':0.7380},'recall':{'mean':0.6597}},'AFMAS':{'accuracy':{'mean':0.8165},'f1'
+  :{'mean':0.8136},'precision':{'mean':0.8226},'recall':{'mean':0.8317}}}; json.dump(data, 
+  open('/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/results/baseline_comparison_results.json','w'), indent=2)"
+  File "<string>", line 1
+    import json; data={'ResNet50':{'accuracy':{'mean':0.7674},'f1':{'mean':0.7737},'precision':{'mean':0.7814},'recall':{'mean':0.8119}},'Efficie
+                                                                                                                                         ^
+SyntaxError: unterminated string literal (detected at line 1)
+
+
+
+
+
+===============python3 -c "import json; data={'ResNet50':{'accuracy':{'mean':0.7674},'f1':{'mean':0.7737},'precision':{'mean':0.7814},'recall':{'mean':0.8119}},'Efficie
   ntNet-B0':{'accuracy':{'mean':0.7519},'f1':{'mean':0.7270},'precision':{'mean':0.8062},'recall':{'mean':0.7421}},'Standard 
   Ensemble':{'accuracy':{'mean':0.6021},'f1':{'mean':0.6180},'precision':{'mean':0.7380},'recall':{'mean':0.6597}},'AFMAS':{'accuracy':{'mean':0.8165},'f1'
   :{'mean':0.8136},'precision':{'mean':0.8226},'recall':{'mean':0.8317}}}; json.dump(data, 
