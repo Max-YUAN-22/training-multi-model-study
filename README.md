@@ -9,6 +9,46 @@
   sed -n '320,340p' 25_da_afmas.py
 
 
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "MultiLevelDomainDiscriminator" 25_da_afmas.py
+37:MultiLevelDomainDiscriminator = domain_discriminator.MultiLevelDomainDiscriminator
+201:            self.multi_level_discriminator = MultiLevelDomainDiscriminator(
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sed -n '200,250p' 25_da_afmas.py | grep -A 10 -B 5 "MultiLevel"
+            # 假设提取3个层级的特征
+            self.multi_level_discriminator = MultiLevelDomainDiscriminator(
+                feature_dims=(512, 1024, 2048),
+                dropout_rate=dropout_rate
+            )
+
+        self._initialize_weights()
+
+    def _initialize_weights(self):
+        """初始化新增层的权重"""
+        for m in [self.feature_projector, self.task_classifier, self.agent_weight_generator]:
+            for layer in m:
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "multi_level_discriminator" 25_da_afmas.py | grep -v "self.multi_level"
+
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sed -n '320,340p' 25_da_afmas.py
+            if len(agent_features) >= 3:
+                multi_level_feats = tuple([
+                    agent_features[0],  # 512维
+                    agent_features[1],  # 1024维
+                    features            # 2048维
+                ])
+
+                # 应用GRL
+                multi_level_reversed = tuple([
+                    self.grl(feat) for feat in multi_level_feats
+                ])
+
+                # 多层级域判别
+                multi_level_logits = self.multi_level_discriminator(multi_level_reversed)
+                outputs['multi_level_domain_logits'] = multi_level_logits
+
+        # 6. 可选: 返回特征
+        if return_features:
+            outputs['features'] = features
+            outputs['agent_features'] = agent_features
+
 
 ⏺ 找到了！MultiLevelDomainDiscriminator 的默认 feature_dims=(512, 1024, 2048)，但实际传入的第一个特征是2048维的。
 
