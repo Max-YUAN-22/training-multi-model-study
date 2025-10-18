@@ -529,3 +529,23 @@ try4
   sleep 3
   tail -n 30 ~/da_afmas_training.log
 
+try5:
+
+  第1步：修复路径
+  sed -i 's|/Volumes/Seagate/AFMAS_GastricCancer_Dataset/|./|g' 25_da_afmas.py
+
+  第2步：验证修复
+  grep "23_domain_discriminator" 25_da_afmas.py
+
+  第3步：停止错误进程
+  pkill -f 25_da_afmas.py
+
+  第4步：重新启动（单行）
+  nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data
+  /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 >
+  ~/da_afmas_training.log 2>&1 &
+
+  第5步：查看日志
+  sleep 3 && tail -n 30 ~/da_afmas_training.log
+
+  每条命令分别复制执行！一条一条来！ 🔧
