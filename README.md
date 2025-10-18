@@ -1,3 +1,88 @@
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ head -80 ~/workspace/External_Validation_Datasets/21_external_validation_simple.py
+#!/usr/bin/env python3
+"""
+外部验证 - 简化版本
+直接使用AFMAS v2已有的agent加载代码
+
+作者: AFMAS项目组
+日期: 2025-10-16
+"""
+
+import sys
+sys.path.append('/Volumes/Seagate/AFMAS_GastricCancer_Dataset')
+
+import torch
+import torch.nn as nn
+from torchvision import transforms
+from torch.utils.data import Dataset, DataLoader
+from PIL import Image
+import numpy as np
+import json
+from pathlib import Path
+from typing import Dict, List
+from tqdm import tqdm
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, precision_recall_fscore_support
+import argparse
+
+# 导入已有的agent模型定义
+from agent_models_05 import AdversarialClassifier, ResNet101Classifier
+
+
+class GasHisSDBDataset(Dataset):
+    """GasHisSDB数据集"""
+
+    def __init__(self, data_dir: Path, image_size: str = '160x160', transform=None):
+        self.data_dir = data_dir / image_size
+        self.transform = transform
+        self.images = []
+        self.labels = []
+
+        # 加载图像 (支持多种格式)
+        for class_name, label in [('Abnormal', 1), ('Normal', 0)]:
+            class_dir = self.data_dir / class_name
+            if class_dir.exists():
+                # 支持png, bmp, jpg等格式
+                for ext in ['*.png', '*.bmp', '*.jpg', '*.jpeg']:
+                    for img_path in class_dir.glob(ext):
+                        # 过滤掉macOS的隐藏文件 (._开头)
+                        if not img_path.name.startswith('._'):
+                            self.images.append(img_path)
+                            self.labels.append(label)
+
+        print(f"✓ 加载 {len(self.images)} 张图像")
+        print(f"  - Abnormal: {sum(self.labels)} 张")
+        print(f"  - Normal: {len(self.labels) - sum(self.labels)} 张")
+
+    def __len__(self):
+        return len(self.images)
+
+    def __getitem__(self, idx):
+        img_path = self.images[idx]
+        label = self.labels[idx]
+        image = Image.open(img_path).convert('RGB')
+
+        if self.transform:
+            image = self.transform(image)
+
+        return image, label
+
+
+def load_afmas_agent(checkpoint_path: Path, agent_type: str, device: torch.device):
+    """加载AFMAS agent"""
+
+    # 创建模型
+    if agent_type == 'adversarial':
+        model = AdversarialClassifier(num_classes=3, pretrained=False)
+    elif agent_type == 'mlgc':
+        model = ResNet101Classifier(num_classes=3, pretrained=False)
+    else:
+        raise ValueError(f"Unknown agent type: {agent_type}")
+(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ 
+
+
+
 head -80 ~/workspace/External_Validation_Datasets/21_external_validation_simple.py
 
   或者看看整个脚本有多少行，然后分段查看：
