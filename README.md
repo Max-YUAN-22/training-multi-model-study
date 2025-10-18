@@ -1,3 +1,10 @@
+(afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ python3 18_generate_sci_quality_figures.py
+================================================================================
+生成SCI期刊级别的高质量可视化图表
+================================================================================
+⚠ 警告: baseline_comparison_results.json 不存在
+  需要先运行 14_run_experiments.py
+(afmas) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCan
 
 ⏺ 又是硬编码的Mac路径！需要修复这个脚本：
 
