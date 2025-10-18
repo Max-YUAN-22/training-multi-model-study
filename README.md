@@ -1,4 +1,16 @@
-(afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ python3 21_external_validation_simple.py
+首先，请先运行 sed 命令修复硬编码路径：
+
+  cd ~/workspace/External_Validation_Datasets
+  sed -i "s|/Volumes/Seagate/AFMAS_GastricCancer_Dataset|/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset|g" 21_external_validation_simple.py
+  sed -i "s|/Volumes/Seagate/External_Validation_Datasets|/home/ubuntu-user/workspace/External_Validation_Datasets|g" 21_external_validation_simple.py
+
+  然后检查数据目录结构：
+
+  ls -la ./GasHisSDB_full/GasHisSDB/
+
+  看看数据是如何组织的，然后我们再用正确的路径运行！
+  
+  (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ python3 21_external_validation_simple.py
 --data_dir ./GasHisSDB_full/GasHisSDB
 --image_size 160
 --output_dir ./validation_results
