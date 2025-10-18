@@ -1,3 +1,6 @@
+grep -n "model\|pth\|load" ~/workspace/External_Validation_Datasets/21_external_validation_simple.py | head -30
+
+
 (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ python3 21_external_validation_simple.py --model_path ../AFMAS_GastricCancer_Dataset/models/adversarial_best.pth --test_data ./GasHisSDB_full/GasHisSDB/160
 
 usage: 21_external_validation_simple.py [-h] [--data_dir DATA_DIR]
