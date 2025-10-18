@@ -7,6 +7,22 @@
   然后查看具体的初始化代码：
 
   sed -n '200,250p' 25_da_afmas.py | grep -A 10 -B 5 "MultiLevel"
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "MultiLevelDomainDiscriminator" 25_da_afmas.py
+37:MultiLevelDomainDiscriminator = domain_discriminator.MultiLevelDomainDiscriminator
+201:            self.multi_level_discriminator = MultiLevelDomainDiscriminator(
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sed -n '200,250p' 25_da_afmas.py | grep -A 10 -B 5 "MultiLevel"
+            # 假设提取3个层级的特征
+            self.multi_level_discriminator = MultiLevelDomainDiscriminator(
+                feature_dims=(512, 1024, 2048),
+                dropout_rate=dropout_rate
+            )
+
+        self._initialize_weights()
+
+    def _initialize_weights(self):
+        """初始化新增层的权重"""
+        for m in [self.feature_projector, self.task_classifier, self.agent_weight_generator]:
+            for layer in m:
 
 
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sed -n '120,180p' 23_domain_discriminator.py
