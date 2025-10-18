@@ -1,4 +1,22 @@
-(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ps aux | grep 25_da_afmas.py
+⏺ 命令格式错了。分别执行：
+
+  ls -lh *train*.py *da*.py
+
+  或者查看所有Python脚本：
+
+  ls -lh *.py | grep -E "(train|da|afmas)"
+
+  查看是否有13_train_agents.py（之前看到过）：
+
+  ls -lh 13_train_agents.py
+
+  25_da_afmas.py确实只是模型定义。我们可能需要用硬盘里的其他训练脚本，或者直接进行外部验证！
+
+  既然SimCLR已经训练完成，不如直接跳过DA-AFMAS，进行外部验证测试？执行上面的ls命令看看有什么脚本！ 🔍
+  
+  
+  
+  (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ ps aux | grep 25_da_afmas.py
 ubuntu-+   18121  0.0  0.0   9284  1992 pts/2    S+   14:07   0:00 grep --color=auto 25_da_afmas.py
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ tail -n 100 25_da_afmas.py | head -80
     trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
