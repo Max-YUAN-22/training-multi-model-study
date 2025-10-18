@@ -7,7 +7,61 @@
   sed -n '80,100p' 23_domain_discriminator.py
   
   
-  
+  (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -A 20 "class.*Discriminator" 23_domain_discriminator.py | head -30
+class DomainDiscriminator(nn.Module):
+    """
+    域判别器 - 用于对抗训练
+
+    作用:
+    1. 区分来自source domain(内镜)还是target domain(病理)
+    2. 通过对抗训练，强制特征提取器学习域不变特征
+
+    架构:
+    - 输入: 特征向量 (batch_size, feature_dim)
+    - 输出: 域分类logits (batch_size, 2)  [0=内镜, 1=病理]
+    """
+
+    def __init__(
+        self,
+        feature_dim: int = 2048,
+        hidden_dims: Tuple[int, ...] = (1024, 512, 256),
+        dropout_rate: float = 0.5
+    ):
+        """
+        参数:
+--
+class MultiLevelDomainDiscriminator(nn.Module):
+    """
+    多层级域判别器 - 在不同特征层次上进行域适应
+
+    创新点:
+    - 不仅在最后的全局特征上做域适应
+    - 还在中间层特征上做域适应
+    - 多层级对齐，效果更好（参考MDAN, CVPR 2018）
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$  sed -n '80,100p' 23_domain_discriminator.py
+
+        前向传播
+
+        参数:
+            features: 特征向量 (batch_size, feature_dim)
+
+        返回:
+            domain_logits: 域分类logits (batch_size, 2)
+        """
+        # 确保输入是2D
+        if features.dim() > 2:
+            features = features.view(features.size(0), -1)
+
+        domain_logits = self.discriminator(features)
+        return domain_logits
+
+    def get_domain_accuracy(
+        self,
+        features: torch.Tensor,
+        domain_labels: torch.Tensor
+    ) -> float:
+        """
+
   
   
 
