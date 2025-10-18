@@ -745,3 +745,45 @@ For more details see pgrep(1).
 
   3. 查看日志：
   sleep 3 && tail -n 30 ~/da_afmas_training.log
+
+wenti9
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ pkill -f 25_da_afmas.py
+
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$  nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 > ~/da_afmas_training.log 2>&1 &
+[1] 11934
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ sleep 3 && tail -n 30 ~/da_afmas_training.log
+[1]+  Exit 1                  nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 > ~/da_afmas_training.log 2>&1
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/23_domain_discriminator.py", line 171, in forward
+    logits = discriminator(features)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/workspace/AFMAS_GastricCancer_Dataset/23_domain_discriminator.py", line 92, in forward
+    domain_logits = self.discriminator(features)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/container.py", line 244, in forward
+    input = module(input)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu-user/anaconda3/lib/python3.13/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (4x2048 and 512x512)
+(base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ 
+
+
+
