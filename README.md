@@ -1,3 +1,7 @@
+cd ~/workspace/AFMAS_GastricCancer_Dataset
+  head -50 18_generate_sci_quality_figures.py
+
+  try
 (afmas) ubuntu-user@WS7-3:~/workspace/External_Validation_Datasets$ ls -la ~/workspace/AFMAS_GastricCancer_Dataset/results/sci_figures/
 total 8
 drwxr-xr-x 2 ubuntu-user ubuntu-user 4096 Oct 17 18:24 .
