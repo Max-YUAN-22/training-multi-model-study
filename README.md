@@ -1,3 +1,15 @@
+⏺ 找到了问题！MultiLevelDomainDiscriminator 期望 (512, 1024, 2048) 维度的特征，但实际传入的第一个特征是2048维。
+
+  需要查看在forward方法中如何传递multi_level_features：
+
+  grep -n "multi_level_discriminator" 25_da_afmas.py | grep -v "self.multi_level"
+
+  然后查看具体调用的代码：
+
+  sed -n '320,340p' 25_da_afmas.py
+
+
+
 ⏺ 找到了！MultiLevelDomainDiscriminator 的默认 feature_dims=(512, 1024, 2048)，但实际传入的第一个特征是2048维的。
 
   需要查看25_da_afmas.py中如何初始化这个判别器：
