@@ -1,3 +1,26 @@
+检查是否有已训练好的模型：
+
+  cd ~/workspace/AFMAS_GastricCancer_Dataset
+
+  # 检查是否有预训练模型
+  ls -lh models/
+  ls -lh results/
+  find . -name "*.pth" -o -name "*model*" | grep -v __pycache__
+
+  检查是否有完整的训练记录：
+
+  # 查看实验结果
+  ls -lh experiment_results/
+  cat EXPERIMENT_SUMMARY.md 2>/dev/null | head -50
+
+  如果硬盘上已经有训练好的模型，我们可以直接用！
+
+  如果没有，需要用正确的脚本训练。查看13_train_agents.py：
+
+  head -50 13_train_agents.py
+
+
+
 (base) ubuntu-user@WS7-3:~/workspace/AFMAS_GastricCancer_Dataset$ grep -n "def train" 25_da_afmas.py grep -n "for epoch" 25_da_afmas.py
 grep: grep: No such file or directory
 grep: for epoch: No such file or directory
