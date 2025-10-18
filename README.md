@@ -663,3 +663,29 @@ Traceback (most recent call last):
     out = torch.relu(features, inplace=True)
 TypeError: relu() got an unexpected keyword argument 'inplace'
 
+
+try7
+
+新错误！PyTorch版本问题，torch.relu() 不支持 inplace 参数。修复：
+
+  # 修复 relu inplace 错误
+  sed -i 's/torch.relu(features, inplace=True)/torch.nn.functional.relu(features, inplace=True)/g' 05_agent_models.py
+
+  或者更简单，去掉 inplace：
+  sed -i 's/torch.relu(features, inplace=True)/torch.relu(features)/g' 05_agent_models.py
+
+  验证修复：
+  grep "relu" 05_agent_models.py | grep -n "inplace"
+
+  重新启动训练：
+  pkill -f 25_da_afmas.py
+  nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data
+  /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 >
+  ~/da_afmas_training.log 2>&1 &
+
+  查看日志：
+  sleep 3 && tail -n 30 ~/da_afmas_training.log
+
+  执行这些命令！ 🔧
+
+
