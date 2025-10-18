@@ -492,3 +492,17 @@ try4
   ls -lh simclr_logs_rtx4090/best_model.pth
   ls -d processed_data
   ls -d /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k
+
+
+修复：：：：：：
+  # 单行版本（一次性复制这整行）
+  nohup python3 25_da_afmas.py --pretrained_weights ./simclr_logs_rtx4090/best_model.pth --source_data ./processed_data --target_data
+  /home/ubuntu-user/workspace/External_Validation_Datasets/GasHisSDB_labeled_1k --num_epochs 50 --batch_size 32 --learning_rate 0.0001 >
+  ~/da_afmas_training.log 2>&1 &
+
+  echo "训练进程ID: $!"
+
+  # 等待2秒后查看日志
+  sleep 2
+  tail -n 20 ~/da_afmas_training.log
+
